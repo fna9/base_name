@@ -1,0 +1,19 @@
+%h1 Listing messagers
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @messagers.each do |messager|
+      %tr
+        %td= link_to 'Show', messager
+        %td= link_to 'Edit', edit_messager_path(messager)
+        %td= link_to 'Destroy', messager, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Messager', new_messager_path

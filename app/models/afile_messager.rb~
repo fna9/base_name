@@ -1,0 +1,4 @@
+class AfileMassager < ActiveRecord::Base
+  belongs_to :afile
+  belongs_to :messager
+end
