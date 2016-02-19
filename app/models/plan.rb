@@ -1,7 +1,7 @@
 class Plan < ActiveRecord::Base
 
 	has_and_belongs_to_many :groups
-	has_and_belongs_to_many :subjects
+
 	
 	has_many :plan_subjects
 	has_many :subjects, through: :plan_subjects

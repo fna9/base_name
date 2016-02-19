@@ -1,8 +1,8 @@
 class Teacher < ActiveRecord::Base
 
-	has_and_belongs_to_many :subjects
+
 	has_many :subject_teachers
-	has_many :subjects, through: :page_subjects
+	has_many :subjects, through: :subject_teachers
 	
 	belongs_to :user
 	
