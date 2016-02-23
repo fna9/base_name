@@ -61,6 +61,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    if (@user = User.load_from_activation_token(params[:id]))
+      @user.activate!
+      redirect_to(login_path, :notice => 'Адрес электронной почты подтверждён.')
+    else
+      not_authenticated
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -69,6 +78,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(:user).permit(:email, :password, :password_confirmation, 
+        :activation_state, :activation_token, :activation_token_expires_at)
     end
 end

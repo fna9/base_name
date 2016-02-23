@@ -31,6 +31,19 @@ module SideBarHelper
        :icon => 'search',
        :class => 'long'}
     ]} 
+
+    result << {
+      :name => 'Сообщения',
+      :icon => 'search-plus',
+      :children => [
+      {:name => 'Не прочитанные',
+       :controller => :messages, :action => :index,
+       :icon => 'binoculars'},
+      {:name => 'Все разговоры',
+       :controller => :talks, :action => :index,
+       :icon => 'search',
+       :class => 'long'}
+    ]} 
     result
   end
   
