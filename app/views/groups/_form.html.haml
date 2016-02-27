@@ -1,10 +1,24 @@
 = form_for @group do |f|
   - if @group.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@group.errors.count, "error")} prohibited this group from being saved:"
-      %ul
-        - @group.errors.full_messages.each do |msg|
-          %li= msg
+    = error_messages_for @group
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :title
+        =f.text_field(:title, class: 'form-control')
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :course
+        =f.text_field(:course, class: 'form-control')
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :semester
+        =f.text_field(:semester, class: 'form-control')
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Сохранить'

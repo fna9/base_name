@@ -1,0 +1,22 @@
+%h1 Список переодавателей
+
+%table.table
+  %thead
+    %tr
+      %th Фамилия
+      %th Имя
+      %th Отчество
+      %th Степень
+      %th Звание
+      %th Должность
+
+  %tbody
+    - @teachers.each do |teacher|
+      %tr
+        %td= link_to 'Показать', teacher
+        %td= link_to 'Редактировать', edit_teacher_path(teacher)
+        %td= link_to 'Удалить', teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+
+%br
+
+= link_to 'New Teacher', new_teacher_path

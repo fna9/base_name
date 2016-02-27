@@ -1,10 +1,14 @@
 = form_for @afile do |f|
   - if @afile.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@afile.errors.count, "error")} prohibited this afile from being saved:"
-      %ul
-        - @afile.errors.full_messages.each do |msg|
-          %li= msg
+    = error_messages_for @afile
+		
+
+  .row
+    .col-md-8
+      .form-group
+        =f.label :text
+        =f.text_field(:text, class: 'form-control')
+        =f.error_messages_for(:text)
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Сохранить'

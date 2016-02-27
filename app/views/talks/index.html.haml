@@ -1,19 +1,19 @@
-%h1 Listing talks
+%h1 Список бесед
 
 %table.table
   %thead
     %tr
-      %th
+      %th Название
       %th
       %th
 
   %tbody
     - @talks.each do |talk|
       %tr
-        %td= link_to 'Show', talk
-        %td= link_to 'Edit', edit_talk_path(talk)
-        %td= link_to 'Destroy', talk, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Показать', talk
+        %td= link_to 'Редактировать', edit_talk_path(talk)
+        %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'New Talk', new_talk_path
+= link_to 'Новая беседа', new_talk_path

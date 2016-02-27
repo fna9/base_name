@@ -1,19 +1,19 @@
-%h1 Listing marks
+%h1 Рейтинг
 
 %table
   %thead
     %tr
-      %th
-      %th
+      %th Оценка
+      %th Комментарий
       %th
 
   %tbody
     - @marks.each do |mark|
       %tr
-        %td= link_to 'Show', mark
-        %td= link_to 'Edit', edit_mark_path(mark)
-        %td= link_to 'Destroy', mark, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Показать', mark
+        %td= link_to 'Редактировать', edit_mark_path(mark)
+        %td= link_to 'Удалить', mark, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'New Mark', new_mark_path
+= link_to 'Новая оценка', new_mark_path

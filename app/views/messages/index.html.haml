@@ -1,6 +1,7 @@
 %h1 Сообщения
 
-%table
+
+%table.table
   %thead
     %tr
       %th Заголовок
@@ -18,9 +19,9 @@
         %td= message.text
         %td= message.talk
         %td= message.user
-        %td= link_to 'Show', message
-        %td= link_to 'Edit', edit_message_path(message)
-        %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+        %td= link_to 'Показать', message, class: "btn btn-success btn-xs"
+        %td= link_to 'Редактировать', edit_message_path(message), class: "btn btn-warning btn-xs"
+        %td= link_to 'Удалить', message, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn btn-danger btn-xs"
 
 %br
 

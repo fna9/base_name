@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20160212193836) do
 
   create_table "afile_messagers", force: :cascade do |t|
     t.integer  "afile_id"
-    t.integer  "message_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "messager_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "afile_messagers", ["afile_id"], name: "index_afile_messagers_on_afile_id", using: :btree
-  add_index "afile_messagers", ["message_id"], name: "index_afile_messagers_on_message_id", using: :btree
+  add_index "afile_messagers", ["messager_id"], name: "index_afile_messagers_on_messager_id", using: :btree
 
   create_table "afiles", force: :cascade do |t|
     t.text     "description"
@@ -94,14 +94,24 @@ ActiveRecord::Schema.define(version: 20160212193836) do
   add_index "marks", ["student_id"], name: "index_marks_on_student_id", using: :btree
 
   create_table "messager_users", force: :cascade do |t|
-    t.integer  "message_id"
+    t.integer  "messager_id"
     t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "messager_users", ["messager_id"], name: "index_messager_users_on_messager_id", using: :btree
+  add_index "messager_users", ["user_id"], name: "index_messager_users_on_user_id", using: :btree
+
+  create_table "messagers", force: :cascade do |t|
+    t.string   "header"
+    t.text     "text",       null: false
+    t.integer  "talk_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "messager_users", ["message_id"], name: "index_messager_users_on_message_id", using: :btree
-  add_index "messager_users", ["user_id"], name: "index_messager_users_on_user_id", using: :btree
+  add_index "messagers", ["talk_id"], name: "index_messagers_on_talk_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "header"
@@ -285,12 +295,12 @@ ActiveRecord::Schema.define(version: 20160212193836) do
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
   add_foreign_key "afile_messagers", "afiles"
-  add_foreign_key "afile_messagers", "messages"
+  add_foreign_key "afile_messagers", "messagers"
   add_foreign_key "group_plans", "groups"
   add_foreign_key "group_plans", "plans"
   add_foreign_key "group_students", "groups"
   add_foreign_key "group_students", "students"
-  add_foreign_key "messager_users", "messages"
+  add_foreign_key "messager_users", "messagers"
   add_foreign_key "messager_users", "users"
   add_foreign_key "messages", "talks"
   add_foreign_key "messages", "users"

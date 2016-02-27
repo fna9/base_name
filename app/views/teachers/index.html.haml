@@ -1,19 +1,22 @@
-%h1 Listing teachers
+%h1 Список преподавателей
 
-%table
+%table.table
   %thead
     %tr
-      %th
-      %th
-      %th
+      %th Фамилия
+      %th Имя
+      %th Отчество
+      %th Степень
+      %th Звание
+      %th Должность
 
   %tbody
     - @teachers.each do |teacher|
       %tr
-        %td= link_to 'Show', teacher
-        %td= link_to 'Edit', edit_teacher_path(teacher)
-        %td= link_to 'Destroy', teacher, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Показать', teacher
+        %td= link_to 'Редактировать', edit_teacher_path(teacher)
+        %td= link_to 'Удалить', teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'New Teacher', new_teacher_path
+= link_to 'Новый преподватель', new_teacher_path

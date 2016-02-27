@@ -1,0 +1,19 @@
+%h1 Список бесед
+
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @talks.each do |talk|
+      %tr
+        %td= link_to 'Показать', talk
+        %td= link_to 'Редактировать', edit_talk_path(talk)
+        %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+
+%br
+
+= link_to 'Новая беседа', new_talk_path
