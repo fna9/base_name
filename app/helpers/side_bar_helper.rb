@@ -46,6 +46,34 @@ module SideBarHelper
     ]}
 
     result << {
+      :name => 'Сообщества',
+      :icon => 'search-plus',
+      :children => [
+      {:name => 'Учебная группа по плану',
+       :controller => :groups, :action => :index,
+       :icon => 'binoculars'},
+      {:name => 'Все учебные группы',
+       :controller => :groups, :action => :index,
+       :icon => 'search',
+       :class => 'long'}
+    ]}
+
+
+    result << {
+      :name => 'Студенты',
+      :icon => 'search-plus',
+      :children => [
+      {:name => 'Личная информация',
+       :controller => :students, :action => :index,
+       :icon => 'binoculars'},
+      {:name => 'Список всех студентов',
+       :controller => :students, :action => :index,
+       :icon => 'search',
+       :class => 'long'}
+    ]}
+
+
+    result << {
       :name => 'Сообщения',
       :icon => 'search-plus',
       :children => [

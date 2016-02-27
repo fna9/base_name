@@ -1,6 +1,11 @@
-%p#notice= notice
+.br
+.page-header
+  .h1=@talk.title
 
+%p
+  %b Название:
+  = @talk.title
 
-= link_to 'Edit', edit_talk_path(@talk)
+= link_to 'Редактировать', edit_talk_path(@talk)
 \|
-= link_to 'Back', talks_path
+= link_to 'Назад', talks_path
