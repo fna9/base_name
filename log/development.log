@@ -18564,3 +18564,2403 @@ Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa1123
 
 
 Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-20 15:19:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (50.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20160212103449)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (750.0ms)[0m  [1mCREATE TABLE "messages" ("id" serial primary key, "header" character varying, "text" text, "talk_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (46.5ms)[0m  CREATE  INDEX  "index_messages_on_talk_id" ON "messages"  ("talk_id")
+  [1m[36m (81.4ms)[0m  [1mCREATE  INDEX  "index_messages_on_user_id" ON "messages"  ("user_id")[0m
+  [1m[35m (327.5ms)[0m  ALTER TABLE "messages" ADD CONSTRAINT "fk_rails_31b249f0e4"
+FOREIGN KEY ("talk_id")
+  REFERENCES "talks" ("id")
+
+  [1m[36m (104.1ms)[0m  [1mALTER TABLE "messages" ADD CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (17.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160212103449"]]
+  [1m[36m (31.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (7.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afile_messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'delayed_jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'groups'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'marks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messager_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ratings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subject_teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talk_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'versions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (60.1ms)[0m  [1mCREATE DATABASE "base_app_development" ENCODING = 'unicode'[0m
+  [1m[35m (2.4ms)[0m  CREATE DATABASE "base_app_test" ENCODING = 'unicode'
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afile_messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'delayed_jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'groups'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'marks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messager_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ratings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subject_teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talk_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'versions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:15:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (10.2ms)
+  Rendered application/_navbar_top.html.haml (39.2ms)
+  Rendered application/_sidebar.html.haml (22.1ms)
+  Rendered application/_flash_messages.html.haml (2.8ms)
+Completed 200 OK in 14198ms (Views: 14128.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:39 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:15:40 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:15:41 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:15:41 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:15:41 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:15:41 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:15:41 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:29:07 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 1491ms (Views: 1449.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:09 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:29:10 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:29:53 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:29:53 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:30:21 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:30:37 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:30:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:30:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:30:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (6.6ms)
+  Rendered application/_navbar_top.html.haml (18.6ms)
+  Rendered application/_sidebar.html.haml (25.2ms)
+  Rendered application/_flash_messages.html.haml (2.1ms)
+Completed 200 OK in 3894ms (Views: 3830.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:31:11 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:31:12 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:35 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:36 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:37 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:37 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:38 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:38 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:38 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:39 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:31:49 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:32:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (4.2ms)
+  Rendered application/_navbar_top.html.haml (18.9ms)
+  Rendered application/_sidebar.html.haml (23.6ms)
+  Rendered application/_flash_messages.html.haml (2.2ms)
+Completed 200 OK in 2650ms (Views: 2605.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:06 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:32:07 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:32:45 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+  Rendered application/_navbar_top.html.haml (22.6ms)
+  Rendered application/_sidebar.html.haml (8.4ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 924ms (Views: 922.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:46 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:32:47 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:40:38 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+  Rendered application/_navbar_top.html.haml (27.7ms)
+  Rendered application/_sidebar.html.haml (10.3ms)
+  Rendered application/_flash_messages.html.haml (0.2ms)
+Completed 200 OK in 1100ms (Views: 1098.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:39 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:40:40 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:43:49 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+  Rendered application/_navbar_top.html.haml (20.4ms)
+  Rendered application/_sidebar.html.haml (11.7ms)
+  Rendered application/_flash_messages.html.haml (0.2ms)
+Completed 200 OK in 945ms (Views: 943.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:43:50 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:43:51 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:43:52 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:43:59 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.2ms)
+  Rendered application/_navbar_top.html.haml (19.5ms)
+  Rendered application/_sidebar.html.haml (9.8ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 1077ms (Views: 1075.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:00 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:44:01 +0300
+
+
+Started GET "/login" for 127.0.0.1 at 2016-02-27 08:44:03 +0300
+Processing by WelcomeController#new as HTML
+  Rendered welcome/_form.html.haml (29.1ms)
+  Rendered welcome/new.html.haml within layouts/application (35.6ms)
+  Rendered application/_navbar_top.html.haml (19.2ms)
+  Rendered application/_sidebar.html.haml (20.0ms)
+  Rendered application/_flash_messages.html.haml (2.9ms)
+Completed 200 OK in 1392ms (Views: 1129.3ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2016-02-27 08:44:08 +0300
+Processing by UsersController#new as HTML
+  Rendered application/_error_messages_for.html.haml (101.7ms)
+  Rendered application/_error_messages_for_attr.html.haml (3.5ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.1ms)
+  Rendered users/_form.html.haml (202.1ms)
+  Rendered users/new.html.haml within layouts/application (216.7ms)
+  Rendered application/_navbar_top.html.haml (9.1ms)
+  Rendered application/_sidebar.html.haml (9.8ms)
+  Rendered application/_flash_messages.html.haml (0.2ms)
+Completed 200 OK in 1408ms (Views: 1406.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-02-27 08:44:35 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QPg7G3wZd3zzaUNUY7wonRw2Vztay2MIFlH3TF8tFlqui1BWgyDH0aF96q7vGrSwqNXFixZ/8RuPDBwqzZeb5Q==", "user"=>{"email"=>"bolonka94@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Save"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (107.8ms)[0m  [1mINSERT INTO "users" ("email", "salt", "crypted_password", "created_at", "updated_at", "activation_token", "activation_state") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "bolonka94@mail.ru"], ["salt", "4BvHzNoZZTzVtdqNTECX"], ["crypted_password", "$2a$10$iACc/xnStda3PiwszrzCyuTDMu92oI3yso6SlXBq92Sxn2NEFFKV."], ["created_at", "2016-02-27 05:44:35.548349"], ["updated_at", "2016-02-27 05:44:35.548349"], ["activation_token", "hxPNzQVUunJRQN9NtvTT"], ["activation_state", "pending"]]
+  Rendered user_mailer/activation_needed_email.html.haml within layouts/mailer (5.0ms)
+  Rendered user_mailer/activation_needed_email.text.haml within layouts/mailer (4.1ms)
+
+UserMailer#activation_needed_email: processed outbound mail in 496.9ms
+
+Sent mail to bolonka94@mail.ru (66.0ms)
+Date: Sat, 27 Feb 2016 08:44:36 +0300
+From: from@example.com
+To: bolonka94@mail.ru
+Message-ID: <56d137c44d6a3_e36264d878a28d@natalia-P5PL2-E.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56d137c4459c5_e36264d878a156";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56d137c4459c5_e36264d878a156
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com,
+bolonka94@mail.ru
+You have successfully signed up to example.com,
+your username is:
+bolonka94@mail.ru.
+To login to the site, just follow this link:
+http://localhost:3000/users/hxPNzQVUunJRQN9NtvTT/activate.
+Thanks for joining and have a great day!
+
+----==_mimepart_56d137c4459c5_e36264d878a156
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<hmtl>
+  <body>
+    Welcome to example.com,
+    bolonka94@mail.ru
+    You have successfully signed up to example.com,
+    your username is:
+    bolonka94@mail.ru.
+    To login to the site, just follow this link:
+    http://localhost:3000/users/hxPNzQVUunJRQN9NtvTT/activate.
+    Thanks for joining and have a great day!
+  </body>
+</hmtl>
+
+----==_mimepart_56d137c4459c5_e36264d878a156--
+
+  [1m[35m (14.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1118ms (ActiveRecord: 122.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2016-02-27 08:44:36 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.haml within layouts/application (4.8ms)
+  Rendered application/_navbar_top.html.haml (7.5ms)
+  Rendered application/_sidebar.html.haml (9.3ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 889ms (Views: 845.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2016-02-27 08:45:38 +0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.haml within layouts/application (13.6ms)
+  Rendered application/_navbar_top.html.haml (7.6ms)
+  Rendered application/_sidebar.html.haml (7.1ms)
+  Rendered application/_flash_messages.html.haml (0.3ms)
+Completed 200 OK in 915ms (Views: 911.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-02-27 08:45:45 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (0.9ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (10.4ms)
+  Rendered application/_navbar_top.html.haml (8.6ms)
+  Rendered application/_sidebar.html.haml (9.6ms)
+  Rendered application/_flash_messages.html.haml (0.2ms)
+Completed 200 OK in 906ms (Views: 891.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2016-02-27 08:45:50 +0300
+Processing by MessagesController#index as HTML
+  [1m[35mMessage Load (13.1ms)[0m  SELECT "messages".* FROM "messages"
+  Rendered messages/index.html.haml within layouts/application (24.1ms)
+  Rendered application/_navbar_top.html.haml (9.3ms)
+  Rendered application/_sidebar.html.haml (11.5ms)
+  Rendered application/_flash_messages.html.haml (0.3ms)
+Completed 200 OK in 946ms (Views: 847.2ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2016-02-27 08:49:56 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (0.6ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.haml within layouts/application (10.9ms)
+  Rendered application/_navbar_top.html.haml (9.1ms)
+  Rendered application/_sidebar.html.haml (19.0ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 919ms (Views: 895.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:49:58 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:49:59 +0300
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-02-27 08:50:04 +0300
+Processing by GroupsController#index as HTML
+  [1m[35mGroup Load (29.4ms)[0m  SELECT "groups".* FROM "groups"
+  Rendered groups/index.html.haml within layouts/application (37.8ms)
+  Rendered application/_navbar_top.html.haml (9.9ms)
+  Rendered application/_sidebar.html.haml (14.2ms)
+  Rendered application/_flash_messages.html.haml (0.3ms)
+Completed 200 OK in 955ms (Views: 871.8ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-02-27 08:50:28 +0300
+Processing by GroupsController#index as HTML
+  [1m[36mGroup Load (0.5ms)[0m  [1mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.haml within layouts/application (10.3ms)
+  Rendered application/_navbar_top.html.haml (9.5ms)
+  Rendered application/_sidebar.html.haml (19.6ms)
+  Rendered application/_flash_messages.html.haml (0.3ms)
+Completed 200 OK in 920ms (Views: 900.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:29 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:50:30 +0300
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-02-27 08:51:31 +0300
+Processing by GroupsController#index as HTML
+  [1m[35mGroup Load (0.6ms)[0m  SELECT "groups".* FROM "groups"
+  Rendered groups/index.html.haml within layouts/application (4.7ms)
+  Rendered application/_navbar_top.html.haml (9.2ms)
+  Rendered application/_sidebar.html.haml (19.7ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 940ms (Views: 919.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:32 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/logo-9d5e27c15be62c3b667b5cb9e59ce98f5733c473b798e7d3e8028f32ac68f1d6.png" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:51:33 +0300
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-02-27 08:52:02 +0300
+Processing by GroupsController#index as HTML
+  [1m[36mGroup Load (0.5ms)[0m  [1mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.haml within layouts/application (2.0ms)
+  Rendered application/_navbar_top.html.haml (12.4ms)
+  Rendered application/_sidebar.html.haml (14.7ms)
+  Rendered application/_flash_messages.html.haml (0.2ms)
+Completed 200 OK in 941ms (Views: 938.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/theme.self-3647555fa1656f4d4f0431a10e22ad7c5c0d0cbaa168106928fd35b79930718d.css?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:03 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-02-27 08:52:04 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-27 08:52:06 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (2.2ms)
+  Rendered application/_navbar_top.html.haml (13.1ms)
+  Rendered application/_sidebar.html.haml (14.8ms)
+  Rendered application/_flash_messages.html.haml (0.3ms)
+Completed 200 OK in 904ms (Views: 901.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2016-02-27 08:52:23 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (0.3ms)
+  Rendered application/_navbar_top.html.haml (2.8ms)
+  Rendered application/_sidebar.html.haml (14.4ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 904ms (Views: 902.4ms | ActiveRecord: 0.0ms)
