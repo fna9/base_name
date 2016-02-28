@@ -1,6 +1,6 @@
 %h1 Список групп
 
-%table
+%table.table.table-responsive
   %thead
     %tr
       %th Название
@@ -10,10 +10,13 @@
   %tbody
     - @groups.each do |group|
       %tr
+        %td= group.title
+        %td= group.course
+        %td= group.semester
         %td= link_to 'Показать', group
         %td= link_to 'Редактировать', edit_group_path(group)
         %td= link_to 'Удалить', group, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'Новая группа', new_group_path
+= link_to 'Новая группа', new_group_path, "data-toggle" => "tooltip", :title => "Создать новую учебную группу"

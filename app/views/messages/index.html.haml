@@ -1,6 +1,7 @@
 %h1 Сообщения
 
 
+
 %table.table
   %thead
     %tr
@@ -25,4 +26,7 @@
 
 %br
 
-= link_to 'Новое сообщение', new_message_path
+= link_to 'Новое сообщение', new_message_path, "data-toggle" => "tooltip", :title => "Создать новое сообщение"
+
+
+

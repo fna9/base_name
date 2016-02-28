@@ -22,8 +22,11 @@
         %td= message.user
         %td= link_to 'Показать', message, class: "btn btn-success btn-xs"
         %td= link_to 'Редактировать', edit_message_path(message), class: "btn btn-warning btn-xs"
-        %td= link_to 'Удалить', message, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn btn-danger btn-xs"
+        %td= link_to 'Удалить', message, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn.btn-default btn-xs"
 
 %br
 
-= link_to 'Новое сообщение', new_message_path
+= link_to 'Новое сообщение', new_message_path, "data-toggle" => "tooltip", :title => "Создать новое сообщение"
+
+
+

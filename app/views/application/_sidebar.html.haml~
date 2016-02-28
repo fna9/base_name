@@ -25,6 +25,4 @@
             = item[:name]
     %li.footer
       %div
-
-
         © Н. А. Фомина

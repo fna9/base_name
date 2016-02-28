@@ -12,8 +12,8 @@ class Student < ActiveRecord::Base
 	validates :last_name, presence: true, length: {maximum: 64}
 	validates :first_name, presence: true, length: {maximum: 64}
 	validates :b_date, presence: true
-	#validates :passport_series, presence: true, uniqueness: true
-	#validates :passport_id, presence: true, uniqueness: true
+	validates :passport_series, presence: true, uniqueness: true
+	validates :passport_id, presence: true, uniqueness: true
 	
 	validate :check_birthday
 

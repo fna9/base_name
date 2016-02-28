@@ -12,9 +12,9 @@
     - @students.each do |student|
       %tr
         %td= link_to 'Показать', student
-        %td= link_to 'Редактировать', edit_student_path(student)
+        %td= link_to 'Редактировать', edit_student_path(student), "data-toggle" => "tooltip", :title => "Изменить личные данные"
         %td= link_to 'Удалить', student, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'Новый студент', new_student_path
+= link_to 'Новый студент', new_student_path, "data-toggle" => "tooltip", :title => "Создать нового студента"
