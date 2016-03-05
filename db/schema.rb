@@ -77,13 +77,9 @@ ActiveRecord::Schema.define(version: 20160212193836) do
     t.integer  "course",     null: false
     t.integer  "semester",   null: false
     t.json     "data"
-    t.integer  "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "groups", ["student_id"], name: "index_groups_on_student_id", using: :btree
-  add_index "groups", ["title", "course", "semester"], name: "index_groups_on_title_and_course_and_semester", unique: true, using: :btree
 
   create_table "marks", force: :cascade do |t|
     t.integer  "mark",       null: false
@@ -106,16 +102,6 @@ ActiveRecord::Schema.define(version: 20160212193836) do
 
   add_index "messager_users", ["message_id"], name: "index_messager_users_on_message_id", using: :btree
   add_index "messager_users", ["user_id"], name: "index_messager_users_on_user_id", using: :btree
-
-  create_table "messagers", force: :cascade do |t|
-    t.string   "header"
-    t.text     "text",       null: false
-    t.integer  "talk_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "messagers", ["talk_id"], name: "index_messagers_on_talk_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "header"
@@ -196,16 +182,19 @@ ActiveRecord::Schema.define(version: 20160212193836) do
   add_index "ratings", ["subject_id"], name: "index_ratings_on_subject_id", using: :btree
 
   create_table "students", force: :cascade do |t|
-    t.string   "last_name",   limit: 64, null: false
-    t.string   "first_name",  limit: 64, null: false
-    t.string   "second_name", limit: 64
-    t.date     "b_date",                 null: false
+    t.string   "last_name",       limit: 64, null: false
+    t.string   "first_name",      limit: 64, null: false
+    t.string   "second_name",     limit: 64
+    t.date     "b_date",                     null: false
+    t.string   "passport_id",                null: false
+    t.integer  "passport_series",            null: false
     t.integer  "group_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "students", ["group_id"], name: "index_students_on_group_id", using: :btree
+  add_index "students", ["passport_id", "passport_series"], name: "index_students_on_passport_id_and_passport_series", unique: true, using: :btree
 
   create_table "subject_teachers", force: :cascade do |t|
     t.integer  "subject_id"

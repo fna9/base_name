@@ -16,4 +16,9 @@
 //= require jquery.maskedinput
 //= require bootstrap
 //= require bootstrap-growl.min
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/ru
+//= require bootstrap-select/bootstrap-select.min
+//= require bootstrap-select/defaults-ru_RU
 //= require_tree .

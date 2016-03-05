@@ -50603,3 +50603,2910 @@ Processing by StudentsController#new as HTML
   Rendered application/_sidebar.html.haml (11.1ms)
   Rendered application/_flash_messages.html.haml (0.2ms)
 Completed 200 OK in 935ms (Views: 933.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 14:32:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (10.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (40.4ms)
+  Rendered application/_navbar_top.html.haml (59.7ms)
+  Rendered application/_sidebar.html.haml (139.8ms)
+  Rendered application/_flash_messages.html.haml (10.7ms)
+Completed 200 OK in 54366ms (Views: 54063.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 14:33:32 +0300
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-03-05 14:51:12 +0300
+Processing by GroupsController#index as HTML
+  [1m[35mGroup Load (85.0ms)[0m  SELECT "groups".* FROM "groups"
+  Rendered groups/index.html.haml within layouts/application (121.1ms)
+  Rendered application/_navbar_top.html.haml (24.1ms)
+  Rendered application/_sidebar.html.haml (298.1ms)
+  Rendered application/_flash_messages.html.haml (5.0ms)
+Completed 200 OK in 2628ms (Views: 2354.4ms | ActiveRecord: 87.3ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2016-03-05 14:51:15 +0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (13.7ms)
+  Rendered application/_navbar_top.html.haml (9.6ms)
+  Rendered application/_sidebar.html.haml (38.2ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 3126ms (Views: 3120.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 14:51:24 +0300
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (24.1ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (78.4ms)
+  Rendered application/_navbar_top.html.haml (8.7ms)
+  Rendered application/_sidebar.html.haml (33.0ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2253ms (Views: 2110.9ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 14:51:29 +0300
+Processing by StudentsController#new as HTML
+  Rendered application/_error_messages_for_attr.html.haml (6.7ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (161.6ms)
+  Rendered students/new.html.haml within layouts/application (172.6ms)
+  Rendered application/_navbar_top.html.haml (9.9ms)
+  Rendered application/_sidebar.html.haml (32.9ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2647ms (Views: 2436.1ms | ActiveRecord: 101.3ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 14:51:58 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b7ZkLC51oZuvMHjHg8vMeIQuINHs0ZOWov2mW80SAIJOLOTPScNzJzbfm1c9++Wo5wkEgc6D2H9qobaNWXsROQ==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Наталья", "second_name"=>"Александровна", "b_date"=>"09.10.1994", "group_id"=>"121131"}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (29.7ms)[0m  [1mINSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["last_name", "Фомина"], ["first_name", "Наталья"], ["second_name", "Александровна"], ["b_date", "1994-10-09"], ["created_at", "2016-03-05 11:51:58.179324"], ["updated_at", "2016-03-05 11:51:58.179324"]]
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 35.0ms)
+
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ОШИБКА:  нулевое значение в колонке "passport_id" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (1, Фомина, Наталья, Александровна, 1994-10-09, null, null, null, 2016-03-05 11:51:58.179324, 2016-03-05 11:51:58.179324).
+: INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (65.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (201.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (110.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (243.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (17.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (21.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afile_messagers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (18.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'afiles'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'delayed_jobs'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'group_students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'groups'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'marks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messager_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'page_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'pages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ratings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'students'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subject_teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'subjects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talk_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'talks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'teachers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (11.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (11.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'versions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-03-05 16:14:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GroupsController#index as HTML
+  [1m[35mGroup Load (21.7ms)[0m  SELECT "groups".* FROM "groups"
+  Rendered groups/index.html.haml within layouts/application (51.4ms)
+  Rendered application/_navbar_top.html.haml (27.6ms)
+  Rendered application/_sidebar.html.haml (81.0ms)
+  Rendered application/_flash_messages.html.haml (4.9ms)
+Completed 200 OK in 10828ms (Views: 10637.7ms | ActiveRecord: 25.3ms)
+
+
+Started GET "/groups/new" for 127.0.0.1 at 2016-03-05 16:15:06 +0300
+Processing by GroupsController#new as HTML
+  Rendered groups/_form.html.haml (64.3ms)
+  Rendered groups/new.html.haml within layouts/application (74.2ms)
+  Rendered application/_navbar_top.html.haml (9.6ms)
+  Rendered application/_sidebar.html.haml (47.1ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2213ms (Views: 2109.3ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/groups" for 127.0.0.1 at 2016-03-05 16:15:17 +0300
+Processing by GroupsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nid7VXqBMnDmR/17+giNrGYVhknl47BW+tOLR9U1Z70Xvfu2HTfgzH+oHutEOKR8BTKiGcex+78yj5uRQVx2Bg==", "group"=>{"title"=>"121131", "course"=>"4", "semester"=>"8"}, "commit"=>"Сохранить"}
+  [1m[36m (2.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (79.0ms)[0m  INSERT INTO "groups" ("title", "course", "semester", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "121131"], ["course", 4], ["semester", 8], ["created_at", "2016-03-05 13:15:18.006876"], ["updated_at", "2016-03-05 13:15:18.006876"]]
+  [1m[36m (42.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/groups/1
+Completed 302 Found in 196ms (ActiveRecord: 124.4ms)
+
+
+Started GET "/groups/1" for 127.0.0.1 at 2016-03-05 16:15:18 +0300
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGroup Load (1.0ms)[0m  SELECT  "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered groups/show.html.haml within layouts/application (24.6ms)
+  Rendered application/_navbar_top.html.haml (25.9ms)
+  Rendered application/_sidebar.html.haml (62.6ms)
+  Rendered application/_flash_messages.html.haml (12.5ms)
+Completed 200 OK in 2719ms (Views: 2648.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-03-05 16:15:23 +0300
+Processing by GroupsController#index as HTML
+  [1m[36mGroup Load (3.7ms)[0m  [1mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.haml within layouts/application (290.8ms)
+  Rendered application/_navbar_top.html.haml (9.5ms)
+  Rendered application/_sidebar.html.haml (34.9ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2547ms (Views: 2533.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/groups" for 127.0.0.1 at 2016-03-05 16:15:39 +0300
+Processing by GroupsController#index as HTML
+  [1m[35mGroup Load (9.5ms)[0m  SELECT "groups".* FROM "groups"
+  Rendered groups/index.html.haml within layouts/application (42.8ms)
+  Rendered application/_navbar_top.html.haml (8.7ms)
+  Rendered application/_sidebar.html.haml (31.8ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2204ms (Views: 2190.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 16:15:47 +0300
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (15.0ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (75.4ms)
+  Rendered application/_navbar_top.html.haml (9.2ms)
+  Rendered application/_sidebar.html.haml (34.0ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2441ms (Views: 2417.4ms | ActiveRecord: 18.5ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 16:15:53 +0300
+Processing by StudentsController#new as HTML
+  Rendered application/_error_messages_for_attr.html.haml (7.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (189.4ms)
+  Rendered students/new.html.haml within layouts/application (205.5ms)
+  Rendered application/_navbar_top.html.haml (8.9ms)
+  Rendered application/_sidebar.html.haml (32.4ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2354ms (Views: 2219.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:16:03 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kTiBhceyepKDI4yNB5WJkUcvSF5eON+qf798Ex8vUFGwogFmoASoLhrMbx25paBBJAhsDnxqlEO342zFi0ZB6g==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Н", "second_name"=>"", "b_date"=>"", "group_id"=>""}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (8.2ms)[0m  [1mROLLBACK[0m
+  Rendered application/_error_messages_for.html.haml (7.6ms)
+  Rendered application/_error_messages_for_attr.html.haml (10.5ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (194.3ms)
+  Rendered students/new.html.haml within layouts/application (217.9ms)
+  Rendered application/_navbar_top.html.haml (11.6ms)
+  Rendered application/_sidebar.html.haml (43.8ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 3108ms (Views: 3049.0ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:16:36 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZTAkoOwabIQcBgY2dxfTPmNGN8RYIiiCZunfMpNu4HUDkBx5Aa7Domf+4hn7Hacmqo8jzMyw0vBx7eqXiSqOg==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Наталья", "second_name"=>"Александровна", "b_date"=>"09.10.1994", "group_id"=>"121131"}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (21.9ms)[0m  [1mINSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["last_name", "Фомина"], ["first_name", "Наталья"], ["second_name", "Александровна"], ["b_date", "1994-10-09"], ["created_at", "2016-03-05 13:16:36.406900"], ["updated_at", "2016-03-05 13:16:36.406900"]]
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 115ms (ActiveRecord: 22.7ms)
+
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ОШИБКА:  нулевое значение в колонке "passport_id" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (2, Фомина, Наталья, Александровна, 1994-10-09, null, null, null, 2016-03-05 13:16:36.4069, 2016-03-05 13:16:36.4069).
+: INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (65.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (28.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (200.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (3.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (3.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (111.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (246.7ms)
+  [1m[36mStudent Load (2.1ms)[0m  [1mSELECT "students".* FROM "students"[0m
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:20:03 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZTAkoOwabIQcBgY2dxfTPmNGN8RYIiiCZunfMpNu4HUDkBx5Aa7Domf+4hn7Hacmqo8jzMyw0vBx7eqXiSqOg==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Наталья", "second_name"=>"Александровна", "b_date"=>"09.10.1994", "group_id"=>"121131"}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+Completed 500 Internal Server Error in 222ms (ActiveRecord: 9.7ms)
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (41.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (21.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (138.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (2.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (86.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (181.1ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:20:16 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZTAkoOwabIQcBgY2dxfTPmNGN8RYIiiCZunfMpNu4HUDkBx5Aa7Domf+4hn7Hacmqo8jzMyw0vBx7eqXiSqOg==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Наталья", "second_name"=>"Александровна", "b_date"=>"09.10.1994", "group_id"=>"121131"}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["last_name", "Фомина"], ["first_name", "Наталья"], ["second_name", "Александровна"], ["b_date", "1994-10-09"], ["created_at", "2016-03-05 13:20:18.051745"], ["updated_at", "2016-03-05 13:20:18.051745"]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 15.6ms)
+
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ОШИБКА:  нулевое значение в колонке "passport_id" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (3, Фомина, Наталья, Александровна, 1994-10-09, null, null, null, 2016-03-05 13:20:18.051745, 2016-03-05 13:20:18.051745).
+: INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (77.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (28.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (175.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (88.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (8.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (190.0ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:20:28 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZTAkoOwabIQcBgY2dxfTPmNGN8RYIiiCZunfMpNu4HUDkBx5Aa7Domf+4hn7Hacmqo8jzMyw0vBx7eqXiSqOg==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Наталья", "second_name"=>"Александровна", "b_date"=>"09.10.1994", "group_id"=>"121131"}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (27.9ms)[0m  [1mINSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["last_name", "Фомина"], ["first_name", "Наталья"], ["second_name", "Александровна"], ["b_date", "1994-10-09"], ["created_at", "2016-03-05 13:20:29.220570"], ["updated_at", "2016-03-05 13:20:29.220570"]]
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 469ms (ActiveRecord: 28.6ms)
+
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ОШИБКА:  нулевое значение в колонке "passport_id" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (4, Фомина, Наталья, Александровна, 1994-10-09, null, null, null, 2016-03-05 13:20:29.22057, 2016-03-05 13:20:29.22057).
+: INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (78.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (51.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (236.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (5.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (4.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (118.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (233.2ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:22:45 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kTiBhceyepKDI4yNB5WJkUcvSF5eON+qf798Ex8vUFGwogFmoASoLhrMbx25paBBJAhsDnxqlEO342zFi0ZB6g==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Н", "second_name"=>"", "b_date"=>"", "group_id"=>""}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered application/_error_messages_for.html.haml (8.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (315.0ms)
+  Rendered students/new.html.haml within layouts/application (319.5ms)
+  Rendered application/_navbar_top.html.haml (11.9ms)
+  Rendered application/_sidebar.html.haml (42.2ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2955ms (Views: 2918.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:48 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:49 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:50 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:22:51 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:22:52 +0300
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:24:20 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kTiBhceyepKDI4yNB5WJkUcvSF5eON+qf798Ex8vUFGwogFmoASoLhrMbx25paBBJAhsDnxqlEO342zFi0ZB6g==", "student"=>{"last_name"=>"Фомина", "first_name"=>"Н", "second_name"=>"", "b_date"=>"", "group_id"=>""}, "commit"=>"Сохранить"}
+Unpermitted parameter: group_id
+  [1m[36m (4.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered application/_error_messages_for.html.haml (1.5ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (122.9ms)
+  Rendered students/new.html.haml within layouts/application (127.4ms)
+  Rendered application/_navbar_top.html.haml (9.7ms)
+  Rendered application/_sidebar.html.haml (25.9ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2935ms (Views: 2889.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:24:23 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:23 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:23 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:23 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:24 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:25 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:24:26 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:24:27 +0300
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 16:24:30 +0300
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (1.7ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (49.4ms)
+  Rendered application/_navbar_top.html.haml (8.5ms)
+  Rendered application/_sidebar.html.haml (25.5ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2508ms (Views: 2499.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 16:26:29 +0300
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.0ms)[0m  SELECT "students".* FROM "students"
+  Rendered students/index.html.haml within layouts/application (22.1ms)
+  Rendered application/_navbar_top.html.haml (8.7ms)
+  Rendered application/_sidebar.html.haml (24.0ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2496ms (Views: 2238.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:26:32 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:26:32 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:32 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:32 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:32 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:33 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:34 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:26:35 +0300
+
+
+Started GET "/messages" for 127.0.0.1 at 2016-03-05 16:27:00 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mMessage Load (36.7ms)[0m  [1mSELECT "messages".* FROM "messages"[0m
+  Rendered messages/index.html.haml within layouts/application (531.4ms)
+  Rendered application/_navbar_top.html.haml (8.8ms)
+  Rendered application/_sidebar.html.haml (22.8ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2803ms (Views: 2660.0ms | ActiveRecord: 43.7ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:27:10 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (37.2ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (138.3ms)
+  Rendered application/_navbar_top.html.haml (10.9ms)
+  Rendered application/_sidebar.html.haml (398.1ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 3806ms (Views: 3747.9ms | ActiveRecord: 43.2ms)
+
+
+Started DELETE "/talks/3" for 127.0.0.1 at 2016-03-05 16:27:20 +0300
+Processing by TalksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GiCzcxYdYthIOfgHSPqCIM4uGXpp2+8WD7xjBA1JOJI7ujOQcauwZNHWG5f2yqvwrQk9KkuJpP/H4HPSmSApKQ==", "id"=>"3"}
+  [1m[36mTalk Load (1.9ms)[0m  [1mSELECT  "talks".* FROM "talks" WHERE "talks"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (2.8ms)[0m  BEGIN
+  [1m[36mMessage Load (0.8ms)[0m  [1mSELECT "messages".* FROM "messages" WHERE "messages"."talk_id" = $1[0m  [["talk_id", 3]]
+  [1m[35mSQL (55.4ms)[0m  DELETE FROM "talks" WHERE "talks"."id" = $1  [["id", 3]]
+  [1m[36m (24.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/talks
+Completed 302 Found in 167ms (ActiveRecord: 84.9ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:27:20 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.8ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (28.2ms)
+  Rendered application/_navbar_top.html.haml (10.8ms)
+  Rendered application/_sidebar.html.haml (24.2ms)
+  Rendered application/_flash_messages.html.haml (1.1ms)
+Completed 200 OK in 2437ms (Views: 2432.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/talks/2" for 127.0.0.1 at 2016-03-05 16:27:25 +0300
+Processing by TalksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTalk Load (3.9ms)[0m  [1mSELECT  "talks".* FROM "talks" WHERE "talks"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered talks/show.html.haml within layouts/application (17.5ms)
+  Rendered application/_navbar_top.html.haml (9.6ms)
+  Rendered application/_sidebar.html.haml (39.2ms)
+  Rendered application/_flash_messages.html.haml (0.4ms)
+Completed 200 OK in 2543ms (Views: 2529.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:27:30 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (2.3ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (14.5ms)
+  Rendered application/_navbar_top.html.haml (8.4ms)
+  Rendered application/_sidebar.html.haml (21.9ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2125ms (Views: 2119.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:28:10 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (0.8ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (17.8ms)
+  Rendered application/_navbar_top.html.haml (8.7ms)
+  Rendered application/_sidebar.html.haml (24.0ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2462ms (Views: 2457.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:28:12 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:13 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:14 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:15 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:28:16 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:28:16 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:28:16 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:28:16 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:28:16 +0300
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:28:36 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (1.0ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (30.0ms)
+  Rendered application/_navbar_top.html.haml (8.7ms)
+  Rendered application/_sidebar.html.haml (24.1ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2605ms (Views: 2597.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:28:39 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:28:39 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:39 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:39 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:39 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:40 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:41 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:28:42 +0300
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:29:47 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (0.9ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (26.3ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `message_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.message_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528_84832130'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528_84832130'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (60.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (25.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (157.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (5.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (117.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (259.3ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:29:57 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.9ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (23.1ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `messages_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.messages_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528__634174508'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528__634174508'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (58.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (25.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (154.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (83.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (180.0ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:30:28 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (0.9ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messagers_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528__637398378'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528__637398378'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (57.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (157.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (321.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (460.5ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:30:40 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.9ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (57.9ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messager_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528_86233370'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528_86233370'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (64.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (171.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (83.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (180.3ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:30:52 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (1.0ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (53.1ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `users' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.users.id.messager_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528__633810368'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528__633810368'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (60.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (29.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (164.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (83.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (3.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (177.1ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:31:27 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.9ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (23.9ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messager_id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528__637213488'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528__637213488'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (56.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (25.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (158.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (84.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (8.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (6.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (227.8ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:31:42 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (0.9ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (28.8ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messager.id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528_86485380'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528_86485380'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (57.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (46.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (178.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (3.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (87.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (180.3ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:34:36 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.9ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messager.id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528_86485380'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528_86485380'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (58.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (25.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (161.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (3.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (85.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (179.2ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:37:15 +0300
+Processing by TalksController#index as HTML
+  [1m[36mTalk Load (5.5ms)[0m  [1mSELECT "talks".* FROM "talks"[0m
+  Rendered talks/index.html.haml within layouts/application (25.8ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 5.5ms)
+
+ActionView::Template::Error (undefined method `user_id' for "title1":String):
+    10:   %tbody
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title.user_id.messager.id
+    14:         %td= link_to 'Показать', talk
+    15:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    16:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:13:in `block in _app_views_talks_index_html_haml___157089528__637121318'
+  app/views/talks/index.html.haml:11:in `_app_views_talks_index_html_haml___157089528__637121318'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (60.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (24.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (158.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (85.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (10.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (216.6ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:37:56 +0300
+Processing by TalksController#index as HTML
+  Rendered talks/index.html.haml within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Inconsistent indentation: 7 spaces used for indentation, but the rest of the document was indented using 2 spaces.):
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title
+    14:        #%td= link_to talk.title.user_id.messager.id
+    15:         %td= link_to 'Показать', talk
+    16:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    17:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:14
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (66.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (51.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (216.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (5.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (3.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (118.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (271.9ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:39:25 +0300
+Processing by TalksController#index as HTML
+  Rendered talks/index.html.haml within layouts/application (10.2ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Inconsistent indentation: 7 spaces used for indentation, but the rest of the document was indented using 2 spaces.):
+    11:     - @talks.each do |talk|
+    12:       %tr
+    13:         %td= link_to talk.title
+    14:        /%td= link_to talk.title.user_id.messager.id/
+    15:         %td= link_to 'Показать', talk
+    16:         %td= link_to 'Редактировать', edit_talk_path(talk)
+    17:         %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+  app/views/talks/index.html.haml:14
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (462.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (31.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (571.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (4.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (86.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (181.7ms)
+
+
+Started GET "/talks" for 127.0.0.1 at 2016-03-05 16:40:03 +0300
+Processing by TalksController#index as HTML
+  [1m[35mTalk Load (0.9ms)[0m  SELECT "talks".* FROM "talks"
+  Rendered talks/index.html.haml within layouts/application (19.6ms)
+  Rendered application/_navbar_top.html.haml (8.8ms)
+  Rendered application/_sidebar.html.haml (25.0ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+Completed 200 OK in 2393ms (Views: 2385.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/theme.self-b84fd38eed9ec96503561accbb73ed9d62f55269b34233db182f24efe729f074.css?body=1" for 127.0.0.1 at 2016-03-05 16:40:05 +0300
+
+
+Started GET "/assets/application.self-9cb4653c27324b61d53e110673ac455698db2c47152139167b9b4799e1510261.css?body=1" for 127.0.0.1 at 2016-03-05 16:40:05 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:06 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/main.self-b690bf22cbc24b25ca282d07dedd51a647dd7fa2909d5e6a9abe24253526ede4.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:07 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:08 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 16:40:09 +0300
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 16:40:44 +0300
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (4.7ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (38.2ms)
+  Rendered application/_navbar_top.html.haml (9.0ms)
+  Rendered application/_sidebar.html.haml (22.9ms)
+  Rendered application/_flash_messages.html.haml (0.7ms)
+Completed 200 OK in 2422ms (Views: 2413.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 16:45:03 +0300
+Processing by StudentsController#new as HTML
+  Rendered application/_error_messages_for_attr.html.haml (0.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (191.8ms)
+  Rendered students/new.html.haml within layouts/application (200.2ms)
+  Rendered application/_navbar_top.html.haml (10.5ms)
+  Rendered application/_sidebar.html.haml (39.6ms)
+  Rendered application/_flash_messages.html.haml (0.8ms)
+Completed 200 OK in 2737ms (Views: 2733.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2016-03-05 16:48:06 +0300
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i650p+EDj0ygothUk/jGltE9iKXNMU6RKg1Ppdc//i2qNPREhrVd8DlNO8QtyO9Gshqs9e9jBXjiUV9zQ1bvlg==", "student"=>{"last_name"=>"Фомина ", "first_name"=>"Наталья", "second_name"=>"Александровна ", "b_date"=>"09.10.1994", "group_id"=>"121131", "passport_series"=>"", "passport_id"=>""}, "commit"=>"Сохранить"}
+Unpermitted parameters: group_id, passport_series, passport_id
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["last_name", "Фомина "], ["first_name", "Наталья"], ["second_name", "Александровна "], ["b_date", "1994-10-09"], ["created_at", "2016-03-05 13:48:06.848218"], ["updated_at", "2016-03-05 13:48:06.848218"]]
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 4.9ms)
+
+ActiveRecord::StatementInvalid (PG::NotNullViolation: ОШИБКА:  нулевое значение в колонке "passport_id" нарушает ограничение NOT NULL
+DETAIL:  Ошибочная строка содержит (5, Фомина , Наталья, Александровна , 1994-10-09, null, null, null, 2016-03-05 13:48:06.848218, 2016-03-05 13:48:06.848218).
+: INSERT INTO "students" ("last_name", "first_name", "second_name", "b_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"):
+  app/controllers/students_controller.rb:30:in `block in create'
+  app/controllers/students_controller.rb:29:in `create'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (77.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (25.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (177.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (85.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (176.4ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 17:20:32 +0300
+Processing by StudentsController#new as HTML
+  Rendered students/_form.html.haml (15.9ms)
+  Rendered students/new.html.haml within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Inconsistent indentation: "    \t\t" used for indentation, but the rest of the document was indented using 2 spaces.):
+    28:     .col-md-8
+    29:       .form-group
+    30:         =f.label :b_date
+    31:     		.input-group.date.datepicker
+    32:           =f.text_field(:b_date, class: 'form-control')
+    33:         %span.input-group-addon
+    34:           %span.glyphicon.glyphicon-calendar
+  app/views/students/_form.html.haml:31
+  app/views/students/new.html.haml:3:in `_app_views_students_new_html_haml__602797409__641053778'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (76.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (30.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (200.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (90.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (183.6ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 17:21:19 +0300
+Processing by StudentsController#new as HTML
+  Rendered students/_form.html.haml (37.2ms)
+  Rendered students/new.html.haml within layouts/application (41.2ms)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/natalia/Рабочий стол/base_name/app/views/students/_form.html.haml:63: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/students/_form.html.haml:63: syntax error, unexpected keyword_ensure, expecting end-of-input
+  app/views/students/new.html.haml:3:in `_app_views_students_new_html_haml__602797409__641053778'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (70.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (289.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (7.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (433.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (96.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (2.2ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (192.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:31:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (18.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (10.1ms)
+Completed 500 Internal Server Error in 17229ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-datetimespicker.
+Load paths:
+  /home/natalia/Рабочий стол/base_name/app/assets/images
+  /home/natalia/Рабочий стол/base_name/app/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/app/assets/stylesheets
+  /home/natalia/Рабочий стол/base_name/vendor/assets/fonts
+  /home/natalia/Рабочий стол/base_name/vendor/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/vendor/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap3-datetimepicker-rails-4.17.37/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap3-datetimepicker-rails-4.17.37/vendor/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/momentjs-rails-2.11.0/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/font-awesome-rails-4.5.0.0/app/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/font-awesome-rails-4.5.0.0/app/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/turbolinks-2.5.3/lib/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/jquery-rails-4.0.5/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/coffee-rails-4.1.0/lib/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/Rails/vendor/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/images
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/stylesheets):
+     5:     %meta{charset: 'utf-8'}
+     6:     %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0"}
+     7:     %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    10:     = csrf_meta_tags
+    11:     =favicon_link_tag 'favicon.ico'
+  app/assets/stylesheets/theme.sass:51
+  app/views/layouts/application.html.haml:8:in `_app_views_layouts_application_html_haml__690503332_95835160'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (100.0ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (37.8ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (248.9ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (102.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.3ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (247.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:33:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 10897ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (File to import not found or unreadable: bootstrap-select.
+Load paths:
+  /home/natalia/Рабочий стол/base_name/app/assets/images
+  /home/natalia/Рабочий стол/base_name/app/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/app/assets/stylesheets
+  /home/natalia/Рабочий стол/base_name/vendor/assets/fonts
+  /home/natalia/Рабочий стол/base_name/vendor/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/vendor/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap3-datetimepicker-rails-4.17.37/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap3-datetimepicker-rails-4.17.37/vendor/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/momentjs-rails-2.11.0/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/font-awesome-rails-4.5.0.0/app/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/font-awesome-rails-4.5.0.0/app/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/turbolinks-2.5.3/lib/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/jquery-rails-4.0.5/vendor/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/coffee-rails-4.1.0/lib/assets/javascripts
+  /home/natalia/Рабочий стол/base_name/Rails/vendor/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/stylesheets
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/javascripts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/fonts
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/images
+  /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/bootstrap-sass-3.3.6/assets/stylesheets):
+     5:     %meta{charset: 'utf-8'}
+     6:     %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0"}
+     7:     %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
+     8:     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+     9:     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    10:     = csrf_meta_tags
+    11:     =favicon_link_tag 'favicon.ico'
+  app/assets/stylesheets/theme.sass:52
+  app/views/layouts/application.html.haml:8:in `_app_views_layouts_application_html_haml__831482500_86897950'
+
+
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (84.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (33.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (205.6ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (1.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.5ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (11.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (102.7ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (1.4ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (9.1ms)
+  Rendered /home/natalia/.rvm/gems/ruby-2.0.0-p598/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (224.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:36:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.haml within layouts/application (9.2ms)
+  Rendered application/_navbar_top.html.haml (29.2ms)
+  Rendered application/_sidebar.html.haml (78.6ms)
+  Rendered application/_flash_messages.html.haml (5.0ms)
+Completed 200 OK in 36120ms (Views: 36029.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme.self-5e5dd787b5cfd23d635dce9eee73551e5c92008bb4787094fd07c897f67af764.css?body=1" for 127.0.0.1 at 2016-03-05 17:36:50 +0300
+
+
+Started GET "/assets/application.self-7bbae075161a4e829f3a6ffb4c8fc594ad3bc04f1649e73f121e366b223b32ea.css?body=1" for 127.0.0.1 at 2016-03-05 17:36:50 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/moment.self-dd7e1dba8e5a8b658165e18950b4810c6e415d45abf282d3924dcfcd35a2638c.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:51 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/main.self-4912ff649a0b036e576f52def87032a55031cefa2589b0e0594e7246b12f6f15.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:52 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:53 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/application.self-65789398a1ab6b4c5db5598019acca3d7a9343f99d2ee3a3443e5c7c00e6c1bd.js?body=1" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 17:36:54 +0300
+
+
+Started GET "/login" for 127.0.0.1 at 2016-03-05 17:36:58 +0300
+Processing by WelcomeController#new as HTML
+  Rendered welcome/_form.html.haml (28.1ms)
+  Rendered welcome/new.html.haml within layouts/application (42.2ms)
+  Rendered application/_navbar_top.html.haml (24.2ms)
+  Rendered application/_sidebar.html.haml (53.8ms)
+  Rendered application/_flash_messages.html.haml (4.8ms)
+Completed 200 OK in 3599ms (Views: 3100.6ms | ActiveRecord: 113.5ms)
+  [1m[36mUser Load (39.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (3.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+
+
+Started GET "/users/new" for 127.0.0.1 at 2016-03-05 17:38:05 +0300
+Processing by UsersController#new as HTML
+  Rendered application/_error_messages_for.html.haml (34.4ms)
+  Rendered application/_error_messages_for_attr.html.haml (6.2ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.5ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered users/_form.html.haml (195.8ms)
+  Rendered users/new.html.haml within layouts/application (212.8ms)
+  Rendered application/_navbar_top.html.haml (12.2ms)
+  Rendered application/_sidebar.html.haml (26.3ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2375ms (Views: 2358.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-03-05 17:38:34 +0300
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yUphBijY74UFatIuVrJkQ+DA+ney3q6SCG5+c+tmQ2OYBP8OgjD1eYrWEAwT6NSDJCzJlIqx3v4dPGFF1i9iTg==", "user"=>{"email"=>"bolonka94@mail.ru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Сохранить"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (14.9ms)[0m  [1mINSERT INTO "users" ("email", "salt", "crypted_password", "created_at", "updated_at", "activation_token", "activation_state") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "bolonka94@mail.ru"], ["salt", "aunyq9yzczAsHte5Jgqv"], ["crypted_password", "$2a$10$y9gOkiNxYPooFJLNqi0XR.SbIrRTbdByzsF16KwVxm5kcBmvJybA."], ["created_at", "2016-03-05 14:38:34.997948"], ["updated_at", "2016-03-05 14:38:34.997948"], ["activation_token", "7k1pQqiHrCY8hxL7Qp5B"], ["activation_state", "pending"]]
+  Rendered user_mailer/activation_needed_email.html.haml within layouts/mailer (563.9ms)
+  Rendered user_mailer/activation_needed_email.text.haml within layouts/mailer (16.5ms)
+
+UserMailer#activation_needed_email: processed outbound mail in 1756.5ms
+
+Sent mail to bolonka94@mail.ru (58.4ms)
+Date: Sat, 05 Mar 2016 17:38:36 +0300
+From: from@example.com
+To: bolonka94@mail.ru
+Message-ID: <56daef6cd7778_12a926015e3c45415@pc.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_56daef6c9597a_12a926015e3c45324";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_56daef6c9597a_12a926015e3c45324
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com,
+bolonka94@mail.ru
+You have successfully signed up to example.com,
+your username is:
+bolonka94@mail.ru.
+To login to the site, just follow this link:
+http://localhost:3000/users/7k1pQqiHrCY8hxL7Qp5B/activate.
+Thanks for joining and have a great day!
+
+----==_mimepart_56daef6c9597a_12a926015e3c45324
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<hmtl>
+  <body>
+    Welcome to example.com,
+    bolonka94@mail.ru
+    You have successfully signed up to example.com,
+    your username is:
+    bolonka94@mail.ru.
+    To login to the site, just follow this link:
+    http://localhost:3000/users/7k1pQqiHrCY8hxL7Qp5B/activate.
+    Thanks for joining and have a great day!
+  </body>
+</hmtl>
+
+----==_mimepart_56daef6c9597a_12a926015e3c45324--
+
+  [1m[35m (18.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 2846ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2016-03-05 17:38:36 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (10.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.haml within layouts/application (22.1ms)
+  Rendered application/_navbar_top.html.haml (11.2ms)
+  Rendered application/_sidebar.html.haml (30.3ms)
+  Rendered application/_flash_messages.html.haml (0.9ms)
+Completed 200 OK in 2880ms (Views: 2808.3ms | ActiveRecord: 10.7ms)
+  [1m[36mUser Load (1.9ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36mSQL (1.6ms)[0m  [1mUPDATE "users" SET "activation_state" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["activation_state", "active"], ["updated_at", "2016-03-05 14:38:55.970238"], ["id", 2]]
+  [1m[35m (21.8ms)[0m  COMMIT
+
+
+Started GET "/login" for 127.0.0.1 at 2016-03-05 17:39:03 +0300
+Processing by WelcomeController#new as HTML
+  Rendered welcome/_form.html.haml (14.1ms)
+  Rendered welcome/new.html.haml within layouts/application (23.2ms)
+  Rendered application/_navbar_top.html.haml (9.9ms)
+  Rendered application/_sidebar.html.haml (28.4ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+Completed 200 OK in 2611ms (Views: 2605.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/try_login" for 127.0.0.1 at 2016-03-05 17:39:10 +0300
+Processing by WelcomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y4WRNqLY7x+cPKGeTFJIk2wSmOa4cRcd9O4HoSbPQ50yyw8+CDD14xOAY7wJCPhTqP6rBYAeZ3HhvBiXG4ZisA==", "email"=>"bolonka94@mail.ru", "password"=>"[FILTERED]", "remember_me"=>"false", "commit"=>"Войти"}
+  [1m[35mUser Load (4.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = 'bolonka94@mail.ru'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSQL (20.4ms)[0m  [1mUPDATE "users" SET "failed_logins_count" = 0 WHERE "users"."id" = $1[0m  [["id", 2]]
+  [1m[35mSQL (11.7ms)[0m  UPDATE "users" SET "last_login_at" = '2016-03-05 14:39:11.606562' WHERE "users"."id" = $1  [["id", 2]]
+  [1m[36mSQL (3.1ms)[0m  [1mUPDATE "users" SET "last_login_from_ip_address" = '127.0.0.1' WHERE "users"."id" = $1[0m  [["id", 2]]
+Redirected to http://localhost:3000/
+  [1m[35mSQL (9.3ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:39:11.638040' WHERE "users"."id" = $1  [["id", 2]]
+Completed 302 Found in 711ms (ActiveRecord: 48.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:39:11 +0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.haml within layouts/application (0.5ms)
+  Rendered application/_navbar_top.html.haml (11.4ms)
+  Rendered application/_sidebar.html.haml (31.5ms)
+  Rendered application/_flash_messages.html.haml (1.1ms)
+  [1m[35mSQL (19.6ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:39:14.468456' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 2782ms (Views: 2740.0ms | ActiveRecord: 20.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:41:47 +0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered application/_navbar_top.html.haml (9.6ms)
+  Rendered application/_sidebar.html.haml (32.5ms)
+  Rendered application/_flash_messages.html.haml (0.6ms)
+  [1m[35mSQL (16.8ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:41:50.766924' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 2936ms (Views: 2879.3ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/assets/theme.self-5e5dd787b5cfd23d635dce9eee73551e5c92008bb4787094fd07c897f67af764.css?body=1" for 127.0.0.1 at 2016-03-05 17:41:50 +0300
+
+
+Started GET "/assets/application.self-7bbae075161a4e829f3a6ffb4c8fc594ad3bc04f1649e73f121e366b223b32ea.css?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:51 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:52 +0300
+
+
+Started GET "/assets/moment.self-dd7e1dba8e5a8b658165e18950b4810c6e415d45abf282d3924dcfcd35a2638c.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:52 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:52 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:52 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/main.self-4912ff649a0b036e576f52def87032a55031cefa2589b0e0594e7246b12f6f15.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:53 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:54 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/application.self-65789398a1ab6b4c5db5598019acca3d7a9343f99d2ee3a3443e5c7c00e6c1bd.js?body=1" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 17:41:55 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 17:41:56 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 17:41:56 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 17:41:56 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:44:26 +0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (11.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.haml within layouts/application (0.4ms)
+  Rendered application/_navbar_top.html.haml (10.1ms)
+  Rendered application/_sidebar.html.haml (36.0ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+  [1m[35mSQL (331.8ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:44:30.487197' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 4471ms (Views: 4114.4ms | ActiveRecord: 343.3ms)
+
+
+Started GET "/assets/theme.self-5e5dd787b5cfd23d635dce9eee73551e5c92008bb4787094fd07c897f67af764.css?body=1" for 127.0.0.1 at 2016-03-05 17:44:31 +0300
+
+
+Started GET "/assets/application.self-7bbae075161a4e829f3a6ffb4c8fc594ad3bc04f1649e73f121e366b223b32ea.css?body=1" for 127.0.0.1 at 2016-03-05 17:44:31 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:31 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:31 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/moment.self-dd7e1dba8e5a8b658165e18950b4810c6e415d45abf282d3924dcfcd35a2638c.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:32 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/main.self-4912ff649a0b036e576f52def87032a55031cefa2589b0e0594e7246b12f6f15.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:33 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:34 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/application.self-09fb2f18c9f38f09d961c29f1447094708cb5c7f952185771f2273329db3d691.js?body=1" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 17:44:35 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-05 17:46:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (4.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered welcome/index.html.haml within layouts/application (9.8ms)
+  Rendered application/_navbar_top.html.haml (43.6ms)
+  Rendered application/_sidebar.html.haml (466.4ms)
+  Rendered application/_flash_messages.html.haml (5.0ms)
+  [1m[36mSQL (19.9ms)[0m  [1mUPDATE "users" SET "last_activity_at" = '2016-03-05 14:46:43.817224' WHERE "users"."id" = $1[0m  [["id", 2]]
+Completed 200 OK in 11393ms (Views: 10962.3ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/assets/theme.self-5e5dd787b5cfd23d635dce9eee73551e5c92008bb4787094fd07c897f67af764.css?body=1" for 127.0.0.1 at 2016-03-05 17:46:43 +0300
+
+
+Started GET "/assets/application.self-7bbae075161a4e829f3a6ffb4c8fc594ad3bc04f1649e73f121e366b223b32ea.css?body=1" for 127.0.0.1 at 2016-03-05 17:46:44 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:44 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:44 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:44 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:44 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/moment.self-dd7e1dba8e5a8b658165e18950b4810c6e415d45abf282d3924dcfcd35a2638c.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-f4c780e77f9e34c90cc43fc2a2bc2d2f11d5b54470904990480fc9cb434d918c.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/moment/ru.self-5ffb62cd54845c383819bda33f7905add47563617bebdac9bc6d704e3d5af040.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/bootstrap-select/bootstrap-select.min.self-db98bbf21f44a609e8a6275c1c2fd04207587621ad7dd637c62b0ca0a7868038.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/bootstrap-select/defaults-ru_RU.self-a0230e44b6262351bdb7e8cc6623f065a2b44362bed5cce0f36eb557ce709902.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:45 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/main.self-4912ff649a0b036e576f52def87032a55031cefa2589b0e0594e7246b12f6f15.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:46 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:47 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/application.self-b5567fb0cb73f9d4ecd4fa178bbc995d9efe2b53da5e5bf4ca587adb307de5b1.js?body=1" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 17:46:48 +0300
+
+
+Started GET "/students" for 127.0.0.1 at 2016-03-05 17:47:04 +0300
+Processing by StudentsController#index as HTML
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mStudent Load (24.6ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.haml within layouts/application (50.6ms)
+  Rendered application/_navbar_top.html.haml (25.0ms)
+  Rendered application/_sidebar.html.haml (92.7ms)
+  Rendered application/_flash_messages.html.haml (5.1ms)
+  [1m[35mSQL (25.1ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:47:09.047254' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 4198ms (Views: 4069.6ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2016-03-05 17:47:09 +0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (6.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered welcome/index.html.haml within layouts/application (7.6ms)
+  Rendered application/_navbar_top.html.haml (13.2ms)
+  Rendered application/_sidebar.html.haml (28.9ms)
+  Rendered application/_flash_messages.html.haml (3.7ms)
+  [1m[35mSQL (15.8ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:47:14.120409' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 4468ms (Views: 4424.1ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 17:47:14 +0300
+Processing by StudentsController#new as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered application/_error_messages_for_attr.html.haml (6.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (426.5ms)
+  Rendered students/new.html.haml within layouts/application (440.1ms)
+  Rendered application/_navbar_top.html.haml (9.6ms)
+  Rendered application/_sidebar.html.haml (26.0ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+  [1m[35mSQL (24.6ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:47:17.959576' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 3744ms (Views: 3591.0ms | ActiveRecord: 31.9ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2016-03-05 17:47:18 +0300
+
+
+Started GET "/students/new" for 127.0.0.1 at 2016-03-05 17:49:50 +0300
+Processing by StudentsController#new as HTML
+  [1m[36mUser Load (10.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered application/_error_messages_for_attr.html.haml (10.1ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered application/_error_messages_for_attr.html.haml (0.3ms)
+  Rendered students/_form.html.haml (183.7ms)
+  Rendered students/new.html.haml within layouts/application (200.1ms)
+  Rendered application/_navbar_top.html.haml (11.5ms)
+  Rendered application/_sidebar.html.haml (31.1ms)
+  Rendered application/_flash_messages.html.haml (0.5ms)
+  [1m[35mSQL (17.3ms)[0m  UPDATE "users" SET "last_activity_at" = '2016-03-05 14:49:54.365002' WHERE "users"."id" = $1  [["id", 2]]
+Completed 200 OK in 3359ms (Views: 3317.5ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/assets/theme.self-5e5dd787b5cfd23d635dce9eee73551e5c92008bb4787094fd07c897f67af764.css?body=1" for 127.0.0.1 at 2016-03-05 17:49:54 +0300
+
+
+Started GET "/assets/application.self-7bbae075161a4e829f3a6ffb4c8fc594ad3bc04f1649e73f121e366b223b32ea.css?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/jquery.maskedinput.self-4e0cf4cd8f2c531aed9d38ff9537af1065f92408fb369be61ab0c82b40000ca8.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/bootstrap-growl.min.self-8a40746a094cfdde4b396d4e88457397b744d7042d3cd8f7dd0aaa9c1814a4c5.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:55 +0300
+
+
+Started GET "/assets/moment.self-dd7e1dba8e5a8b658165e18950b4810c6e415d45abf282d3924dcfcd35a2638c.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-f4c780e77f9e34c90cc43fc2a2bc2d2f11d5b54470904990480fc9cb434d918c.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/moment/ru.self-5ffb62cd54845c383819bda33f7905add47563617bebdac9bc6d704e3d5af040.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/bootstrap-select/bootstrap-select.min.self-db98bbf21f44a609e8a6275c1c2fd04207587621ad7dd637c62b0ca0a7868038.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/bootstrap-select/defaults-ru_RU.self-a0230e44b6262351bdb7e8cc6623f065a2b44362bed5cce0f36eb557ce709902.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/afile_massagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/afile_messagers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/afiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/group_plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:56 +0300
+
+
+Started GET "/assets/group_students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/groups.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/main.self-4912ff649a0b036e576f52def87032a55031cefa2589b0e0594e7246b12f6f15.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/marks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/messager_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/page_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/page_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/plan_subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/ratings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:57 +0300
+
+
+Started GET "/assets/sidebar.self-9de08734b770e1d724d9ec0f5cc40ed784c495e1f328ac6ad09b33b4ed037919.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/subject_teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/subjects.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/talk_users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/talks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/welcome.self-62fe1ba3a628b58f4fd05bd5c07745afba414a81bf6bcf6667b043c255efe449.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:58 +0300
+
+
+Started GET "/assets/application.self-b5567fb0cb73f9d4ecd4fa178bbc995d9efe2b53da5e5bf4ca587adb307de5b1.js?body=1" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/gears-c73a2796db66a2ae730c595dc9cddfbbbd319737e0eaa442bf5318c6d538e167.gif" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/open_sans-7a723d2f99415f393e2537d9b0b0ba4c1b4d7a1ea964d1abdce0f310d92643ad.woff" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/open_sans_bold-0628cef3bdb6e9823751f942a02252ae562bdfb98f94f2de68e176c35b7c84ba.woff" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular-fe185d11a49676890d47bb783312a0cda5a44c4039214094e7957b4c040ef11c.woff2" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/intro-fcbfae1e42f1d4ee8bc05f4a9f22c85215afd391b7fb909aa112346803c70dd1.woff" for 127.0.0.1 at 2016-03-05 17:49:59 +0300
+
+
+Started GET "/assets/fontawesome-webfont-ff82aeed6b9bb6701696c84d1b223d2e682eb78c89117a438ce6cfea8c498995.woff2?v=4.5.0" for 127.0.0.1 at 2016-03-05 17:49:59 +0300

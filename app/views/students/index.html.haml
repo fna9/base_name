@@ -7,6 +7,8 @@
       %th Имя
       %th Отчество
       %th Дата рождения
+      %th Номер паспорта
+      %th Серия паспорта
       %th Учебная группа
 
   %tbody
@@ -16,6 +18,8 @@
         %td= student.first_name
         %td= student.second_name
         %td= student.b_date
+        %td= student.passport_id
+        %td= student.passport_series
         %td= link_to student.group_id
         %td= link_to 'Показать', student
         %td= link_to 'Редактировать', edit_student_path(student), "data-toggle" => "tooltip", :title => "Изменить личные данные"
