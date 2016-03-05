@@ -1,6 +1,25 @@
 %p#notice= notice
 
+%p
+  %b Фамилия:
+  =link_to @student.last_name
 
-= link_to 'Edit', edit_student_path(@student)
+%p
+  %b Имя:
+  =link_to @student.first_name
+
+%p
+  %b Отчество:
+  =link_to @student.second_name
+
+%p
+  %b Дата рождения:
+  =link_to @student.b_date
+
+%p
+  %b Номер учебной группы:
+  =link_to @student.groupS
+
+= link_to 'Редактировать', edit_student_path(@student)
 \|
-= link_to 'Back', students_path
+= link_to 'Назад', students_path

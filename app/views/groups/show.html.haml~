@@ -12,7 +12,7 @@
 
 %p
   %b Студенты:
-  =link_to @students
+  =link_to 'Фомина Н.А.'
 
 
 = link_to 'Редактировать', edit_group_path(@group)

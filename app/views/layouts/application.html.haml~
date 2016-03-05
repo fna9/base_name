@@ -1,7 +1,7 @@
 !!!
 %html{lang: 'ru'}
   %head
-    %title=t('app.name')
+    %title=t('Учебный портал')
     %meta{charset: 'utf-8'}
     %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0"}
     %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
@@ -9,7 +9,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     =favicon_link_tag 'favicon.ico'
-    =favicon_link_tag 'favicon-32x32.png', sizes: '16x16'
+    =favicon_link_tag 'favicon-32x32.png', sizes: '32x32'
     =favicon_link_tag 'apple-icon.png', rel: 'apple-touch-icon'
 
   %body

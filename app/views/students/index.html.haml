@@ -1,20 +1,26 @@
 %h1 Список студентов
 
-%table
+%table.table.table-responsive
   %thead
     %tr
       %th Фамилия
       %th Имя
       %th Отчество
       %th Дата рождения
+      %th Учебная группа
 
   %tbody
     - @students.each do |student|
       %tr
+        %td= student.last_name
+        %td= student.first_name
+        %td= student.second_name
+        %td= student.b_date
+        %td= link_to student.group_id
         %td= link_to 'Показать', student
         %td= link_to 'Редактировать', edit_student_path(student), "data-toggle" => "tooltip", :title => "Изменить личные данные"
         %td= link_to 'Удалить', student, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'Новый студент', new_student_path, "data-toggle" => "tooltip", :title => "Создать нового студента"
+= link_to 'Новый студент', new_student_path, "data-toggle" => "tooltip", :title => "Добавление нового студента"

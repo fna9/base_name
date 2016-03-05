@@ -1,44 +1,44 @@
 module SideBarHelper
   def side_bar_items(ru)
     result = []
-    result << {
-      :name => 'Сслыка без детей',
-      :icon => 'list',
-      :controller => :welcome, 
-      :action => :index
-    }
-    result << {
-      :name => 'Администрирование',
-      :icon => 'users',
-      :children => [
-      {:name => 'Пользователи',
-       :controller => :users, :action => :index,
-       :icon => 'file-text-o',
-       :class => 'long'},
-      {:name => 'Добавление',
-       :controller => :users, :action => :new,
-       :icon => 'user-plus'}
-    ]} 
-    result << {
-      :name => 'Заголовок ссылок',
-      :icon => 'search-plus',
-      :children => [
-      {:name => 'Ссылка ребёнок',
-       :controller => :welcome, :action => :index,
-       :icon => 'binoculars'},
-      {:name => 'Ссылка ребёнок',
-       :controller => :welcome, :action => :index,
-       :icon => 'search',
-       :class => 'long'}
-    ]} 
+   # result << {
+   #  :name => 'Сслыка без детей',
+   #   :icon => 'list',
+   #   :controller => :welcome, 
+   #   :action => :index
+   # }
+   # result << {
+   #   :name => 'Администрирование',
+   #   :icon => 'users',
+   #   :children => [
+   #   {:name => 'Пользователи',
+   #   :controller => :users, :action => :index,
+   #    :icon => 'file-text-o',
+   #    :class => 'long'},
+   #   {:name => 'Добавление',
+   #   :controller => :users, :action => :new,
+   #    :icon => 'user-plus'}
+   #  ]} 
+   #  result << {
+   #    :name => 'Заголовок ссылок',
+   #    :icon => 'search-plus',
+   #    :children => [
+   #    {:name => 'Ссылка ребёнок',
+   #     :controller => :welcome, :action => :index,
+   #     :icon => 'binoculars'},
+   #   {:name => 'Ссылка ребёнок',
+   #    :controller => :welcome, :action => :index,
+   #    :icon => 'search',
+   #    :class => 'long'}
+   # ]} 
 
     result << {
       :name => 'Учебные группы',
-      :icon => 'search-plus',
+      :icon => 'users',
       :children => [
       {:name => 'Учебная группа по плану',
        :controller => :groups, :action => :index,
-       :icon => 'binoculars'},
+       :icon => 'file-text-o'},
       {:name => 'Все учебные группы',
        :controller => :groups, :action => :index,
        :icon => 'search',
@@ -83,8 +83,16 @@ module SideBarHelper
       {:name => 'Все разговоры',
        :controller => :talks, :action => :index,
        :icon => 'search',
-       :class => 'long'}
+       :class =>'long'}
     ]} 
+
+    result << {
+      :name => 'Настройки',
+      :icon => 'fa-fw',
+      :controller => :welcome, 
+      :action => :index
+    }
+
     result
   end
   

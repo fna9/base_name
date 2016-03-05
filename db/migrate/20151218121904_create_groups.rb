@@ -5,6 +5,8 @@ class CreateGroups < ActiveRecord::Migration
       t.integer :course, :null => false
       t.integer :semester, :null => false
       t.json :data
+      t.index [:title, :course, :semester], :unique => true
+      t.belongs_to :student, index: true
 
       t.timestamps null: false
     end

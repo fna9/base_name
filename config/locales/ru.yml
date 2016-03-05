@@ -2,8 +2,8 @@ ru:
   app:
     name: Учебный портал
     company:
-      short_name: НИЯУ МИФИ
-      department: УИМООП
+      short_name: ""
+      department: учреждение
   helpers:
     sure: Вы уверены?
     submit:

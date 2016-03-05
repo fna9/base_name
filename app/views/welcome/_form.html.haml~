@@ -4,7 +4,7 @@
       .form-group
         .input-group.input-group-md
           %span.input-group-addon.px50
-            %i.fa.fa-at
+            %i.fa.fa-user
           = text_field_tag :email, '', class: 'form-control', placeholder: User.human_attribute_name(:email)
   .row
     .col-md-6 
