@@ -38,9 +38,16 @@
     .col-md-8
       .form-group
         =f.label :group_id
-        =f.text_field(:group_id, class: 'form-control')
+        =f.select(:group_id, 
+        options_for_select(Group.order(:title).all.map{ |g| [g.title, g.id] }.to_a, 
+        f.object.group_id), {}, {class: 'form-control selectpicker', multiple: false,
+        data: {value: f.object.group_id, 'live-search' => 'true'}})
         =f.error_messages_for(:group_id)
-
+        -# по смыслу:
+        -# options_for_select(массив пар [вид, значение], выбранное значение)
+        -# class: selectpicker - для включение плагина selectpicker. Включается в main.coffee
+        -# data: {value: снова выбранное значение} так нужно для плагина.
+        -# data: {'live-search' => 'true'} - включение поиска по опциям select-а
   .row
     .col-md-8
       .form-group
@@ -51,7 +58,7 @@
   .row
     .col-md-8
       .form-group
-        =f.label :password_id
+        =f.label :passport_id
         =f.text_field(:passport_id, class: 'form-control')
         =f.error_messages_for(:passport_id)
 

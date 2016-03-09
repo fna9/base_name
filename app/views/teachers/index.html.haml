@@ -9,14 +9,22 @@
       %th Степень
       %th Звание
       %th Должность
+      %th Дата рождения
 
   %tbody
     - @teachers.each do |teacher|
       %tr
-        %td= link_to 'Показать', teacher
-        %td= link_to 'Редактировать', edit_teacher_path(teacher)
-        %td= link_to 'Удалить', teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+        %td= teacher.last_name
+        %td= teacher.first_name
+        %td= teacher.second_name
+        %td= teacher.degree
+        %td= teacher.rank
+        %td= teacher.position
+        %td= teacher.b_date
+        %td= link_to 'Показать', teacher, class: "btn btn-success btn-xs"
+        %td= link_to 'Редактировать', edit_teacher_path(teacher), class: "btn btn-warning btn-xs"
+        %td= link_to 'Удалить', teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn btn-danger btn-xs"
 
 %br
 
-= link_to 'Новый преподватель', new_teacher_path
+= link_to 'Новый преподаватель', new_teacher_path

@@ -14,13 +14,13 @@
         %td= link_to group.title
         %td= group.course
         %td= group.semester
-        %td= link_to group.student
+        %td= link_to 'Список студентов'
         %td= link_to 'Показать', group, class: "btn btn-success btn-xs"
         %td= link_to 'Редактировать', edit_group_path(group), class: "btn btn-warning btn-xs"
         %td= link_to 'Удалить', group, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn btn-danger btn-xs"
 
 %br
 
-= link_to 'Новая группа', new_group_path, "data-toggle" => "tooltip", :title => "Создать новую учебную группу", class: "btn btn-primary btn-xs"
+= link_to span.glyphicon.glyphicon-print 'Новая группа', new_group_path, "data-toggle" => "tooltip", :title => "Создать новую учебную группу", class: "btn btn-primary btn-xs"
 
 

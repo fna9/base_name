@@ -34,7 +34,7 @@ module SideBarHelper
 
     result << {
       :name => 'Учебные группы',
-      :icon => 'users',
+      :icon => 'sitemap',
       :children => [
       {:name => 'Учебная группа по плану',
        :controller => :groups, :action => :index,
@@ -47,12 +47,12 @@ module SideBarHelper
 
     result << {
       :name => 'Сообщества',
-      :icon => 'search-plus',
+      :icon => 'university',
       :children => [
-      {:name => 'Учебная группа по плану',
+      {:name => 'Ваши сообщества',
        :controller => :groups, :action => :index,
-       :icon => 'binoculars'},
-      {:name => 'Все учебные группы',
+       :icon => 'file-text-o'},
+      {:name => 'Все сообщества',
        :controller => :groups, :action => :index,
        :icon => 'search',
        :class => 'long'}
@@ -61,11 +61,11 @@ module SideBarHelper
 
     result << {
       :name => 'Студенты',
-      :icon => 'search-plus',
+      :icon => 'users',
       :children => [
       {:name => 'Личная информация',
        :controller => :students, :action => :index,
-       :icon => 'binoculars'},
+       :icon => 'user'},
       {:name => 'Список всех студентов',
        :controller => :students, :action => :index,
        :icon => 'search',
@@ -75,20 +75,27 @@ module SideBarHelper
 
     result << {
       :name => 'Сообщения',
-      :icon => 'search-plus',
+      :icon => 'comment',
       :children => [
       {:name => 'Не прочитанные',
        :controller => :messages, :action => :index,
-       :icon => 'binoculars'},
+       :icon => 'envelope'},
       {:name => 'Все разговоры',
        :controller => :talks, :action => :index,
-       :icon => 'search',
+       :icon => 'comments',
        :class =>'long'}
     ]} 
 
     result << {
+      :name => 'Преподаватели',
+      :icon => 'mortar-board',
+      :controller => :teachers,
+      :action => :index
+    }
+
+    result << {
       :name => 'Настройки',
-      :icon => 'fa-fw',
+      :icon => 'cogs',
       :controller => :welcome, 
       :action => :index
     }

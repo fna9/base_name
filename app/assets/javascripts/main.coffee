@@ -8,5 +8,14 @@ $(document).on 'page:load', loaderf
 dtpick = ->
   $('.datepicker').datetimepicker({locale: 'ru', format: 'DD.MM.YYYY'})
   false
-$(document).ready dtpick
-$(document).on 'page:load', dtpick
+selectpickerf = ->
+  $('.selectpicker').selectpicker()
+  $('.selectpicker[data-value]').each ->
+    $(this).selectpicker 'val', $(this).data('value')
+    false
+readyallf = -> 
+  dtpick()
+  selectpickerf()
+  false
+$(document).ready readyallf
+$(document).on 'page:load', readyallf

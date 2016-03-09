@@ -7,6 +7,7 @@ class CreateTeachers < ActiveRecord::Migration
       t.string :degree, :null => false
       t.string :rank, :null => false
       t.string :position, :null => false
+      t.date :b_date, :null => false 
 
       t.timestamps null: false
     end

@@ -2,7 +2,7 @@ ru:
   app:
     name: Учебный портал
     company:
-      short_name: Образовательное 
+      short_name: ""
       department: учреждение
   helpers:
     sure: Вы уверены?
@@ -67,6 +67,7 @@ ru:
         degree: Степень
         rank: Звание
         position: Должность
+	b_date: Дата рождения
       rating:
         title: Название
         type: Тип

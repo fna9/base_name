@@ -12,6 +12,7 @@ class Teacher < ActiveRecord::Base
 	validates :degree, presence: true
 	validates :rank, presence: true
 	validates :position, presence: true
+        validates :b_date, presence: true
 	
 	validate :check_b_date
 
