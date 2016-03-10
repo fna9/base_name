@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    #@groups = Group.where(:student_id=@student)
   end
 
   # GET /students/1

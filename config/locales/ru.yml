@@ -55,8 +55,11 @@ ru:
         last_name: Фамилия
         first_name: Имя
         second_name: Отчество
-        b_date: День рождения
+        b_date: Дата рождения
         number_of_books: Номер зачетной книжки
+        passport_id: Номер паспорта
+        passport_series: Серия паспорта
+        image: Изображение
       mark:
         mark: Оценка
         comment: Комментарий

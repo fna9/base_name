@@ -1,25 +1,42 @@
-%p#notice= notice
-
-%p
-  %b Фамилия:
-  =link_to @student.last_name
-
-%p
-  %b Имя:
-  =link_to @student.first_name
-
-%p
-  %b Отчество:
-  =link_to @student.second_name
+.br
+.page-header
+  .h1=@student.last_name
+  .h1=@student.first_name
+  .h1=@student.second_name
+-#%p
+-#  %b
+-#  -if @student.image?
+-#    =link_to @student.image.url do
+-#      = image_tag @student.image.url(:medium), alt: @student.last_name
+-#  -else
+-#    .li.text-danger
+-#      Изображение не загружено!
 
 %p
   %b Дата рождения:
-  =link_to @student.b_date
+  = @student.b_date
 
 %p
-  %b Номер учебной группы:
-  =link_to @student.groups
+  %b Номер паспорта:
+  = @student.passport_id
 
-= link_to 'Редактировать', edit_student_path(@student)
+%p
+  %b Серия паспорта:
+  = @student.passport_series
+
+%p
+  %b Учебная группа:
+  = link_to @student.groups
+
+%p
+  %b Сообщества:
+
+
+
+= link_to edit_student_path(@student), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
 \|
-= link_to 'Назад', students_path
+= link_to students_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться к списку студентов
