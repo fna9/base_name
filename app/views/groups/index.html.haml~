@@ -11,7 +11,7 @@
   %tbody
     - @groups.each do |group|
       %tr
-        %td= link_to groups.title
+        %td= link_to group.title
         %td= group.course
         %td= group.semester
         %td= link_to 'Список студентов'
