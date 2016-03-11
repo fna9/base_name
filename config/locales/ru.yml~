@@ -59,6 +59,7 @@ ru:
         number_of_books: Номер зачетной книжки
         passport_id: Номер паспорта
         passport_series: Серия паспорта
+        image: Изображение
       mark:
         mark: Оценка
         comment: Комментарий
@@ -86,6 +87,8 @@ ru:
         text: Текст
       afile:
         description: Описание
+      talk:
+        title: Описание
     errors:
       models:
         person:

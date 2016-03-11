@@ -2,7 +2,8 @@ class Plan < ActiveRecord::Base
 
 	has_and_belongs_to_many :groups
 
-	
+	belongs_to :university
+
 	has_many :plan_subjects
 	has_many :subjects, through: :plan_subjects
 	

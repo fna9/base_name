@@ -87,6 +87,8 @@ ru:
         text: Текст
       afile:
         description: Описание
+      talk:
+        title: Название
     errors:
       models:
         person:

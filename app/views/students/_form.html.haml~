@@ -15,7 +15,6 @@
   .row
     .col-md-8
       .form-group
-        *
         =f.label :first_name
         =f.text_field(:first_name, class: 'form-control')
         =f.error_messages_for(:first_name)
@@ -71,6 +70,6 @@
 
 
 
-  .h10 * - поля обязательные для заполнения!
+  .h5 * - поля обязательные для заполнения!
   .actions
     = f.submit 'Сохранить'

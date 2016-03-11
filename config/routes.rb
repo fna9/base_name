@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :universities
   resources :messages
   resources :afile_messagers
   resources :messager_users

@@ -18,4 +18,14 @@ class ApplicationController < ActionController::Base
 	return true
     render 'access_denied' unless @current_user.try(:is_admin?)
   end
+
+  def admin_permission
+    unless @current_client.try(:admin?)
+      flash[:danger]="Недостаточно прав для просмотра страницы"
+      redirect_to root_path
+    end
+  end
+
 end
+
+

@@ -12,10 +12,28 @@
         %span.icon-bar
         %span.icon-bar
 
+      %ul.breadcrumb
+        %li
+          %a{:href => "#"} Главная
+        %span.divider /
+      %li
+        %a{:href => "#"} Библиотека
+        %span.divider /
+      %li.active Данные
+
     %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+        %ul.dropdown-menu
+          = link_to root_path do
+            = @current_user.blank? ? 'Университет' : @university.name
+        %li.dropdown-submenu
+          %a{:href => "#", :tabindex => "-1"} More options
+        %li
+        %li|
       %li
         = link_to login_path do
-          = @current_user.blank? ? 'Фомина Наталья Александровна' : @current_user.email
+          = @current_user.blank? ? 'Войти' : @current_user.email
       %li
         - if @current_user.blank?
           = link_to login_path do
@@ -23,3 +41,4 @@
         - else
           = link_to logout_path do
             = fa_icon 'sign-out'
+

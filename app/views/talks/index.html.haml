@@ -1,4 +1,5 @@
-%h1 Список бесед
+.page-header
+  <h1>Беседы</h1>
 
 %table.table
   %thead
@@ -12,9 +13,20 @@
       %tr
         %td= link_to talk.title
         -#%td= link_to talk.title.user_id.messager.id
-        %td= link_to 'Показать', talk
-        %td= link_to 'Редактировать', edit_talk_path(talk)
-        %td= link_to 'Удалить', talk, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+        %td
+          = link_to talk,"data-toggle" => "tooltip", :title => "Развернутая информация преподавателя", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_talk_path(talk), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to talk, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
 
 %br
 

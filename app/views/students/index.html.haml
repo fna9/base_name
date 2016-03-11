@@ -12,6 +12,7 @@
       %th Номер паспорта
       %th Серия паспорта
       %th Учебная группа
+      %th{:colspan => "3"}
 
   %tbody
     - @students.each do |student|
@@ -19,11 +20,10 @@
         %td= student.last_name
         %td= student.first_name
         %td= student.second_name
-        %td= student.b_date
+        %td= student.b_date.to_date
         %td= student.passport_id
         %td= student.passport_series
-        %td= student.groups
-
+        %td= link_to student.groups
         %td
           = link_to student,"data-toggle" => "tooltip", :title => "Развернутая информация студента", class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"

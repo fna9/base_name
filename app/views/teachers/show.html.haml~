@@ -1,6 +1,40 @@
-%p#notice= notice
+.br
+.page-header
+  .h1=@teacher.last_name + ' ' + @teacher.first_name + ' ' + @teacher.second_name
+
+-#%p
+-#  %b
+-#  -if @teacher.image?
+-#    =link_to @teacher.image.url do
+-#      = image_tag @teacher.image.url(:medium), alt: @teacher.last_name
+-#  -else
+-#    .li.text-danger
+-#      Изображение не загружено!
+
+%p
+  %b Степень:
+  = @teacher.degree
+
+%p
+  %b Ранг:
+  = @teacher.rank
+%p
+  %b Должность:
+  = @teacher.position
+
+%p
+  %b Учебная группа:
+  = link_to @teaher.group
+
+%p
+  %b Сообщества:
 
 
-= link_to 'Edit', edit_teacher_path(@teacher)
+
+= link_to edit_teacher_path(@teacher), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
 \|
-= link_to 'Back', teachers_path
+= link_to teachers_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться к списку преподавателей

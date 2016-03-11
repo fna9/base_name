@@ -12,9 +12,13 @@
 
 %p
   %b Студенты:
-  =link_to @students
+  =link_to @group.students
 
 
-= link_to 'Редактировать', edit_group_path(@group)
+= link_to edit_group_path(@group), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
 \|
-= link_to 'Назад', groups_path
+= link_to groups_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться к списку учебных групп

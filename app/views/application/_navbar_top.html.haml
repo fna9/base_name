@@ -12,7 +12,18 @@
         %span.icon-bar
         %span.icon-bar
 
+
+
     %ul.nav.navbar-nav.navbar-right.collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        %ul.dropdown-menu{"aria-labelledby" => "dLabel", :role => "menu"}
+        %ul.dropdown-menu
+          = link_to root_path do
+            = @current_user.blank? ? 'Университет' : @university.name
+        %li.dropdown-submenu
+          %a{:href => "#", :tabindex => "-1"} More options
+        %li
+        %li|
       %li
         = link_to login_path do
           = @current_user.blank? ? 'Войти' : @current_user.email
@@ -23,3 +34,4 @@
         - else
           = link_to logout_path do
             = fa_icon 'sign-out'
+

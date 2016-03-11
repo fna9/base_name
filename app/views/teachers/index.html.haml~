@@ -1,7 +1,7 @@
 .page-header
   <h1>Преподаватели</h1>
 
-%table.table
+%table.table.active
   %thead
     %tr
       %th Фамилия
@@ -10,7 +10,6 @@
       %th Степень
       %th Звание
       %th Должность
-      %th Дата рождения
 
   %tbody
     - @teachers.each do |teacher|
@@ -21,11 +20,21 @@
         %td= teacher.degree
         %td= teacher.rank
         %td= teacher.position
-        %td= teacher.b_date
-        %td= link_to 'Показать', teacher, class: "btn btn-success btn-xs"
-        %td= link_to 'Редактировать', edit_teacher_path(teacher), class: "btn btn-warning btn-xs"
-        %td= link_to 'Удалить', teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' }, class: "btn btn-danger btn-xs"
+        %td
+          = link_to teacher,"data-toggle" => "tooltip", :title => "Развернутая информация преподавателя", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_teacher_path(teacher), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to teacher, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
 
 %br
 
-= link_to 'Новый преподаватель', new_teacher_path
+= link_to 'Добавить нового преподавателя', new_teacher_path
