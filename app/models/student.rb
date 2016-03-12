@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
 
-	has_many :groups,->{includes(:stusent).order(:created_at)}
+
 
 	# has_attached_file :image, styles: { :medium => "300x300>", :thumb => "100x100>" }
 
@@ -17,8 +17,8 @@ class Student < ActiveRecord::Base
 	validates :last_name, presence: true, length: {maximum: 64}
 	validates :first_name, presence: true, length: {maximum: 64}
 	validates :b_date, presence: true
-	validates :passport_series, presence: true, uniqueness: true
-	validates :passport_id, presence: true, uniqueness: true
+	validates :passport_series, presence: true, uniqueness: {scope: :passport_id}
+	validates :passport_id, presence: true
 
 	
  #validates :image,
@@ -40,10 +40,15 @@ class Student < ActiveRecord::Base
 		"#{age(d)} #{RuPropisju.choose_plural(age(d), 'год', 'года', 'лет')}"
 	end
 	
+	def full_name
+	  "#{self.last_name} #{self.first_name[0..0]}." + (self.second_name.present? ? self.second_name[0..0] + '.' : '')
+	end	
 private
 
 	def check_birthday
 		errors.add(:b_date, :invalid) if b_date && b_date>Date.today
 		true
 	end
+	
+
 end

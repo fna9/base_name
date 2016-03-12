@@ -5,9 +5,11 @@
   = @talk.title
 
 
-= link_to 'Редактировать', edit_talk_path(@talk)
+= link_to edit_talk_path(@talk), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
 \|
-= link_to 'Назад', talks_path
-
-
+= link_to talks_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться назад
 

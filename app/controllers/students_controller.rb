@@ -25,10 +25,22 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
+    @student = Student.new(student_params) 
+    if params.has_key?(:student) and params[:student].has_key?(:groups)
+      @sg = params[:student][:groups].map{ |sg| sg.to_i } - [0]
+    end    
+    if @student.save
+      if @sg.kind_of?(Array)
+        @student.group_students.delete_all
+        @sg.each do |gr_id|
+          GroupStudent.create(group_id: gr_id.to_i, student: @student)
+        end
+      end
+    end
+   
 
     respond_to do |format|
-      if @student.save
+      if @student.errors.size == 0
         format.html { redirect_to @student, notice: 'Студент успешно создан.' }
         format.json { render :show, status: :created, location: @student }
       else
@@ -41,8 +53,20 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   # PATCH/PUT /students/1.json
   def update
+    if params.has_key?(:student) and params[:student].has_key?(:groups)
+      @sg = params[:student][:groups].map{ |sg| sg.to_i } - [0]
+    end    
+    if @student.update(student_params)
+      if @sg.kind_of?(Array)
+        @student.group_students.delete_all
+        @sg.each do |gr_id|
+          GroupStudent.create(group_id: gr_id.to_i, student: @student)
+        end
+      end
+    end
+  
     respond_to do |format|
-      if @student.update(student_params)
+      if @student.errors.size == 0
         format.html { redirect_to @student, notice: 'Информация о студенте успешно изменена.' }
         format.json { render :show, status: :ok, location: @student }
       else

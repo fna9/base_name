@@ -23,7 +23,7 @@
         %td= student.b_date.to_date
         %td= student.passport_id
         %td= student.passport_series
-        %td= link_to student.groups
+        %td= raw(student.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
         %td
           = link_to student,"data-toggle" => "tooltip", :title => "Развернутая информация студента", class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"

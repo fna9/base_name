@@ -13,7 +13,7 @@
 
 %p
   %b Дата рождения:
-  = @student.b_date.to_date
+  = l(@student.b_date.to_date)
 
 %p
   %b Номер паспорта:
@@ -23,12 +23,13 @@
   %b Серия паспорта:
   = @student.passport_series
 
-%p
-  %b Учебная группа:
-  = link_to @student
 
 %p
   %b Сообщества:
+  %ul
+    - @student.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
 
 
 

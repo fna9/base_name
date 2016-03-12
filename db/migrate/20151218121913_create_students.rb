@@ -8,7 +8,6 @@ class CreateStudents < ActiveRecord::Migration
       t.string :passport_id, :null => false
       t.integer :passport_series, :null => false 
       t.index [:passport_id, :passport_series], :unique => true
-      t.references :group, index: true
 
       t.timestamps null: false
     end
