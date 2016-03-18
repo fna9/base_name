@@ -30,9 +30,9 @@ class TeachersController < ApplicationController
     end    
     if @teacher.save
       if @ts.kind_of?(Array)
-        @teacher.group_students.delete_all
+        @teacher.subject_teachers.delete_all
         @ts.each do |gr_id|
-          GroupStudent.create(subject_id: gr_id.to_i, teacher: @teacher)
+          SubjectTeacher.create(subject_id: gr_id.to_i, teacher: @teacher)
         end
       end
     end

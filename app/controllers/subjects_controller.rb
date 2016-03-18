@@ -28,11 +28,11 @@ class SubjectsController < ApplicationController
     if params.has_key?(:subject) and params[:subject].has_key?(:teachers)
       @st = params[:subject][:teachers].map{ |st| st.to_i } - [0]
     end    
-    if @teacher.save
-      if @ts.kind_of?(Array)
-        @teacher.group_students.delete_all
-        @ts.each do |gr_id|
-          GroupStudent.create(subject_id: gr_id.to_i, teacher: @teacher)
+    if @subject.save
+      if @st.kind_of?(Array)
+        @subject.subject_teachers.delete_all
+        @st.each do |gr_id|
+          SubjectTeacher.create(teacher_id: gr_id.to_i, subject: @subject)
         end
       end
     end
