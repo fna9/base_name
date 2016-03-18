@@ -94,6 +94,19 @@ module SideBarHelper
     }
 
     result << {
+      :name => 'Предметы',
+      :icon => 'comment',
+      :children => [
+      {:name => '?',
+       :controller => :subjects, :action => :index,
+       :icon => 'envelope'},
+      {:name => 'Все дисциплины',
+       :controller => :subjects, :action => :index,
+       :icon => 'comments',
+       :class =>'long'}
+    ]}
+
+    result << {
       :name => 'Настройки',
       :icon => 'cogs',
       :controller => :welcome, 

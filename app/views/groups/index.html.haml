@@ -12,7 +12,7 @@
   %tbody
     - @groups.each do |group|
       %tr
-        %td= link_to group.title, group.title
+        %td= link_to group.title, group_path(group)
         %td= group.course
         %td= group.semester
         %td= raw(group.students.map{ |g| link_to(g.full_name, student_path(g)) }.join(', '))

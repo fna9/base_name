@@ -25,10 +25,22 @@ class TeachersController < ApplicationController
   # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params)
+    if params.has_key?(:teacher) and params[:teacher].has_key?(:subjects)
+      @ts = params[:teacher][:subjects].map{ |ts| ts.to_i } - [0]
+    end    
+    if @teacher.save
+      if @ts.kind_of?(Array)
+        @teacher.group_students.delete_all
+        @ts.each do |gr_id|
+          GroupStudent.create(subject_id: gr_id.to_i, teacher: @teacher)
+        end
+      end
+    end
+   
 
     respond_to do |format|
       if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Преподаватель успешно добавлен.' }
+        format.html { redirect_to @teacher, notice: 'Преподаватель успешно создан.' }
         format.json { render :show, status: :created, location: @teacher }
       else
         format.html { render :new }
@@ -40,9 +52,21 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
+    if params.has_key?(:teacher) and params[:teacher].has_key?(:subjects)
+      @ts = params[:teacher][:subject].map{ |ts| ts.to_i } - [0]
+    end    
+    if @teacher.update(teacher_params)
+      if @ts.kind_of?(Array)
+        @teacher.subject_teachers.delete_all
+        @ts.each do |gr_id|
+          SubjectTeacher.create(subject_id: gr_id.to_i, teacher: @teacher)
+        end
+      end
+    end
+  
     respond_to do |format|
-      if @teacher.update(teacher_params)
-        format.html { redirect_to @teacher, notice: 'Преподаватель успешно изменён.' }
+      if @teacher.errors.size == 0
+        format.html { redirect_to @teacher, notice: 'Преподаватель успешно изменена.' }
         format.json { render :show, status: :ok, location: @teacher }
       else
         format.html { render :edit }

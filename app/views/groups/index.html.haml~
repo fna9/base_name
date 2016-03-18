@@ -1,4 +1,5 @@
-%h1 Список групп
+.page-header
+  <h1>Учебные группы</h1>
 
 %table.table.table-responsive
   %thead
@@ -11,10 +12,10 @@
   %tbody
     - @groups.each do |group|
       %tr
-        %td= link_to group.title
+        %td= link_to group.title, group.title
         %td= group.course
         %td= group.semester
-        %td= link_to 'Список студентов'
+        %td= raw(group.students.map{ |g| link_to(g.full_name, student_path(g)) }.join(', '))
         %td
           = link_to group, class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"

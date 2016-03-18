@@ -45,12 +45,7 @@
         =f.text_field(:position, class: 'form-control')
         =f.error_messages_for(:position)
 
-  .row
-    .col-md-8
-      .form-group
-        =f.label :b_date
-        =f.text_field(:b_date, class: 'form-control')
-        =f.error_messages_for(:b_date)
+
 
   .actions
     = f.submit 'Сохранить'

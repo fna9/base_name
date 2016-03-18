@@ -12,7 +12,10 @@
 
 %p
   %b Студенты:
-  =link_to @group.student.last_name
+  %ul
+    - @group.students.each do |st|
+      %li
+        = link_to st.title, student_path(st) 
 
 
 = link_to edit_group_path(@group), class: "btn btn-warning" do

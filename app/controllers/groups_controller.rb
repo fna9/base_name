@@ -25,6 +25,18 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    if params.has_key?(:group) and params[:group].has_key?(:students)
+      @gs = params[:group][:students].map{ |gs| gs.to_i } - [0]
+    end    
+    if @group.save
+      if @gs.kind_of?(Array)
+        @group.group_students.delete_all
+        @gs.each do |gr_id|
+          GroupStudent.create(student_id: gr_id.to_i, group: @group)
+        end
+      end
+    end
+   
 
     respond_to do |format|
       if @group.save
@@ -40,8 +52,20 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    if params.has_key?(:group) and params[:group].has_key?(:students)
+      @gs = params[:group][:students].map{ |gs| gs.to_i } - [0]
+    end    
+    if @group.update(group_params)
+      if @gs.kind_of?(Array)
+        @group.group_students.delete_all
+        @gs.each do |gr_id|
+          GroupStudent.create(student_id: gr_id.to_i, group: @group)
+        end
+      end
+    end
+  
     respond_to do |format|
-      if @group.update(group_params)
+      if @group.errors.size == 0
         format.html { redirect_to @group, notice: 'Группа успешно изменена.' }
         format.json { render :show, status: :ok, location: @group }
       else

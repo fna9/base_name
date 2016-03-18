@@ -25,6 +25,18 @@ class SubjectsController < ApplicationController
   # POST /subjects.json
   def create
     @subject = Subject.new(subject_params)
+    if params.has_key?(:subject) and params[:subject].has_key?(:teachers)
+      @st = params[:subject][:teachers].map{ |st| st.to_i } - [0]
+    end    
+    if @teacher.save
+      if @ts.kind_of?(Array)
+        @teacher.group_students.delete_all
+        @ts.each do |gr_id|
+          GroupStudent.create(subject_id: gr_id.to_i, teacher: @teacher)
+        end
+      end
+    end
+   
 
     respond_to do |format|
       if @subject.save
@@ -40,9 +52,21 @@ class SubjectsController < ApplicationController
   # PATCH/PUT /subjects/1
   # PATCH/PUT /subjects/1.json
   def update
+    if params.has_key?(:subject) and params[:subject].has_key?(:teachers)
+      @st = params[:subject][:teacher].map{ |st| st.to_i } - [0]
+    end    
+    if @subject.update(subject_params)
+      if @st.kind_of?(Array)
+        @subject.subject_teachers.delete_all
+        @st.each do |gr_id|
+          SubjectTeacher.create(teacher_id: gr_id.to_i, subject: @subject)
+        end
+      end
+    end
+  
     respond_to do |format|
-      if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
+      if @subject.errors.size == 0
+        format.html { redirect_to @subject, notice: 'Дисциплина успешно изменена.' }
         format.json { render :show, status: :ok, location: @subject }
       else
         format.html { render :edit }

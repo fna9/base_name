@@ -23,8 +23,11 @@
   = @teacher.position
 
 %p
-  %b Учебная группа:
-  = link_to @teaher.group.title
+  %b Учебные группы:
+  %ul
+    - @teacher.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
 
 %p
   %b Сообщества:
