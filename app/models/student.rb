@@ -10,6 +10,8 @@ class Student < ActiveRecord::Base
 
 	has_many :group_students
 	has_many :groups, through: :group_students
+
+	has_many :group_plans, through: :groups
 	
 	belongs_to :user
 	

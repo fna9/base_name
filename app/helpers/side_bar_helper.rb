@@ -1,5 +1,5 @@
 module SideBarHelper
-  def side_bar_items(ru)
+  def side_bar_items(ru, user)
     result = []
    # result << {
    #  :name => 'Сслыка без детей',
@@ -59,19 +59,32 @@ module SideBarHelper
     ]}
 
 
-    result << {
-      :name => 'Студенты',
-      :icon => 'users',
-      :children => [
-      {:name => 'Личная информация',
-       :controller => :students, :action => :index,
-       :icon => 'user'},
-      {:name => 'Список всех студентов',
-       :controller => :students, :action => :index,
-       :icon => 'search',
-       :class => 'long'}
-    ]}
-
+    if user.present? and user.student.present?
+      result << {
+        :name => 'Студенты',
+        :icon => 'users',
+        :children => [
+        {:name => 'Личная информация',
+         :icon => 'user', path: user.student},
+        {:name => 'Список всех студентов',
+         :controller => :students, :action => :index,
+         :icon => 'search',
+         :class => 'long'}
+      ]}
+    else
+      result << {
+        :name => 'Студенты',
+        :icon => 'users',
+        :children => [
+        {:name => 'Личная информация',
+         :controller => :students, :action => :index,
+         :icon => 'user'},
+        {:name => 'Список всех студентов',
+         :controller => :students, :action => :index,
+         :icon => 'search',
+         :class => 'long'}
+      ]}
+    end    
 
     result << {
       :name => 'Сообщения',

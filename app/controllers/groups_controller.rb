@@ -25,14 +25,14 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-    if params.has_key?(:group) and params[:group].has_key?(:students)
-      @gs = params[:group][:students].map{ |gs| gs.to_i } - [0]
+    if params.has_key?(:group) and params[:group].has_key?(:plans)
+      @gp = params[:group][:plans].map{ |gp| gp.to_i } - [0]
     end    
     if @group.save
-      if @gs.kind_of?(Array)
-        @group.group_students.delete_all
-        @gs.each do |gr_id|
-          GroupStudent.create(student_id: gr_id.to_i, group: @group)
+      if @gp.kind_of?(Array)
+        @group.group_plans.delete_all
+        @gs.each do |gp_id|
+          GroupPlan.create(plan_id: gp_id.to_i, group: @group)
         end
       end
     end
@@ -52,14 +52,14 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
-    if params.has_key?(:group) and params[:group].has_key?(:students)
-      @gs = params[:group][:students].map{ |gs| gs.to_i } - [0]
+    if params.has_key?(:group) and params[:group].has_key?(:plans)
+      @gp = params[:group][:plans].map{ |gp| gp.to_i } - [0]
     end    
     if @group.update(group_params)
       if @gs.kind_of?(Array)
-        @group.group_students.delete_all
-        @gs.each do |gr_id|
-          GroupStudent.create(student_id: gr_id.to_i, group: @group)
+        @group.group_plans.delete_all
+        @gp.each do |gp_id|
+          GroupPlan.create(paln_id: gp_id.to_i, group: @group)
         end
       end
     end

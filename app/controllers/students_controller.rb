@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params) 
     if params.has_key?(:student) and params[:student].has_key?(:groups)
-      @sg = params[:student][:groups].map{ |sg| sg.to_i } - [0]
+      @sg = params[:student][:group].map{ |sg| sg.to_i } - [0]
     end    
     if @student.save
       if @sg.kind_of?(Array)

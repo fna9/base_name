@@ -66,7 +66,7 @@ class TeachersController < ApplicationController
   
     respond_to do |format|
       if @teacher.errors.size == 0
-        format.html { redirect_to @teacher, notice: 'Преподаватель успешно изменена.' }
+        format.html { redirect_to @teacher, notice: 'Преподаватель успешно изменен.' }
         format.json { render :show, status: :ok, location: @teacher }
       else
         format.html { render :edit }

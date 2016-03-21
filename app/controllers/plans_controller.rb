@@ -25,6 +25,18 @@ class PlansController < ApplicationController
   # POST /plans.json
   def create
     @plan = Plan.new(plan_params)
+    
+    if params.has_key?(:plan) and params[:plan].has_key?(:groups)
+      @sg = params[:plan][:group].map{ |sg| sg.to_i } - [0]
+    end    
+    if @plan.save
+      if @sg.kind_of?(Array)
+        @plan.group_plans.delete_all
+        @sg.each do |gr_id|
+          GroupPlan.create(group_id: gr_id.to_i, plan: @plan)
+        end
+      end
+    end
 
     respond_to do |format|
       if @plan.save
@@ -40,6 +52,18 @@ class PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
+    if params.has_key?(:plan) and params[:plan].has_key?(:groups)
+      @sg = params[:plan][:groups].map{ |sg| sg.to_i } - [0]
+    end    
+    if @plan.update(plan_params)
+      if @sg.kind_of?(Array)
+        @plan.group_plans.delete_all
+        @sg.each do |gr_id|
+          GroupPlan.create(group_id: gr_id.to_i, plan: @plan)
+        end
+      end
+    end
+  
     respond_to do |format|
       if @plan.update(plan_params)
         format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
@@ -69,6 +93,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params[:plan]
+      params.require(:plan).permit(:code, :title, :level, :form_of_study, :training_period, :groups_id, :university_id)
     end
 end

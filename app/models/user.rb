@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	authenticates_with_sorcery!
 
- 
+  has_one :student
 
   validates :password, length: {minimum: 3}, confirmation: true,
             if: Proc.new { |u| u.new_record? or !u.password.blank? }

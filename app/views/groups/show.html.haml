@@ -1,4 +1,4 @@
-%p#notice= notice
+
 
 %p
   %b Название:
@@ -15,7 +15,9 @@
   %ul
     - @group.students.each do |st|
       %li
-        = link_to st.last_name, student_path(st) 
+        = link_to(st.full_name, student_path(st)) 
+        
+
 
 
 = link_to edit_group_path(@group), class: "btn btn-warning" do
