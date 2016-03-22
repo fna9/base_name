@@ -22,12 +22,7 @@
   %b Должность:
   = @teacher.position
 
-%p
-  %b Учебные группы:
-  %ul
-    - @teacher.groups.each do |gr|
-      %li
-        = link_to gr.title, group_path(gr) 
+
 
 %p
   %b Сообщества:

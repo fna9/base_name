@@ -8,7 +8,7 @@
 
 u = User.find_by_email("bolonka94@gmail.com")
 if u.blank?
-  u = User.create(email: "bolonka94gmail.com", password: "123", password_confirmation: "123")
+  u = User.create(email: "bolonka94@gmail.com", password: "123", password_confirmation: "123")
   u.activation_state = 'active'
   u.save
 end
