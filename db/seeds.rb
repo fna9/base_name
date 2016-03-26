@@ -12,3 +12,13 @@ if u.blank?
   u.activation_state = 'active'
   u.save
 end
+
+r1 = Role.create(name: 'Преподаватель', short_name: 'Преподаватель')
+
+r2 = Role.create(name: 'Администратор', short_name: 'Админ')
+
+r3 = Role.create(name: 'Студент', short_name: 'Студент')
+
+RoleUser.create(role: r1, user: u)
+RoleUser.create(role: r2, user: u)
+RoleUser.create(role: r3, user: u)

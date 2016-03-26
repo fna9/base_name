@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :role_users
+  resources :roles
   resources :universities
   resources :messages
   resources :afile_messagers
