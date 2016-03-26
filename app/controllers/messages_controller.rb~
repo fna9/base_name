@@ -24,7 +24,19 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = Message.new(message_params) 
+    if params.has_key?(:message) and params[:message].has_key?(:users)
+      @mu = params[:message][:user].map{ |mu| sg.to_i } - [0]
+    end    
+    if @message.save
+      if @mu.kind_of?(Array)
+        @message.message_users.delete_all
+        @mu.each do |mu_id|
+          MessegerUser.create(user_id: mu_id.to_i, message: @message)
+        end
+      end
+    end
+   
 
     respond_to do |format|
       if @message.save
@@ -42,7 +54,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message, notice: 'Сообщение было успешно обновлено.' }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
@@ -56,7 +68,7 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to messages_url, notice: 'Сообщение было успешно удалено.' }
       format.json { head :no_content }
     end
   end

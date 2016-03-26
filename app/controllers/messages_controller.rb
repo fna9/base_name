@@ -24,7 +24,19 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    @message = Message.new(message_params) 
+    if params.has_key?(:message) and params[:message].has_key?(:users)
+      @mu = params[:message][:user].map{ |mu| sg.to_i } - [0]
+    end    
+    if @message.save
+      if @mu.kind_of?(Array)
+        @message.message_users.delete_all
+        @mu.each do |mu_id|
+          MessegerUser.create(user_id: mu_id.to_i, message: @message)
+        end
+      end
+    end
+   
 
     respond_to do |format|
       if @message.save
@@ -40,6 +52,18 @@ class MessagesController < ApplicationController
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json
   def update
+    if params.has_key?(:message) and params[:message].has_key?(:users)
+      @mu = params[:message][:users].map{ |mu| mu.to_i } - [0]
+    end    
+    if @message.update(message_params)
+      if @mu.kind_of?(Array)
+        @message.message_users.delete_all
+        @sg.each do |gr_id|
+          MessegerUser.create(user_id: mu_id.to_i, message: @message)
+        end
+      end
+    end
+  
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to @message, notice: 'Сообщение было успешно обновлено.' }
