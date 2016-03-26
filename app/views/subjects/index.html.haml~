@@ -1,6 +1,7 @@
-%h1 Список предметов
+.page-header
+  <h1>Дисциплины</h1>
 
-%table
+%table.table.table-striped
   %thead
     %tr
       %th Название
@@ -10,10 +11,26 @@
   %tbody
     - @subjects.each do |subject|
       %tr
-        %td= link_to 'Show', subject
-        %td= link_to 'Edit', edit_subject_path(subject)
-        %td= link_to 'Destroy', subject, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= subject.title
+        %td= subject.type
+        %td= subject.type_of_reporting
+        %td
+          = link_to subject,"data-toggle" => "tooltip", :title => "Показать", class: "btn btn-success btn-xs" do
+            =fa_icon "arrow-circle-right"
+            Показать
+
+        %td
+          = link_to edit_subject_path(subject), class: "btn btn-warning btn-xs" do
+            =fa_icon "edit"
+            Редактировать
+
+        %td
+          = link_to subject, :method => :delete, :data => { :confirm => 'Вы уверены?' },class: "btn btn-danger btn-xs" do
+            =fa_icon "remove"
+            Удалить
 
 %br
 
-= link_to 'New Subject', new_subject_path
+= link_to new_subject_path, "data-toggle" => "tooltip", :title => "Добавление новой дисциплины", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Новый Студент

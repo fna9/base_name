@@ -21,8 +21,11 @@
     .col-md-8
       .form-group
         =f.label :type_of_reporting
-        =f.text_field(:type_of_reporting, class: 'form-control')
+        = f.select :type_reporting, [["Экзамен", 0], ["Дифференциальный зачет", 1], ["Зачет", 2]]
         =f.error_messages_for(:type_of_reporting)
 
+
+
+
   .actions
-    = f.submit 'Cj[hfybnm'
+    = f.submit 'Сохранить'

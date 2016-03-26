@@ -40,7 +40,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+        format.html { redirect_to @subject, notice: 'Дисциплина успешно создан' }
         format.json { render :show, status: :created, location: @subject }
       else
         format.html { render :new }
@@ -80,7 +80,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to subjects_url, notice: 'Subject was successfully destroyed.' }
+      format.html { redirect_to subjects_url, notice: 'Дисциплина успено удалена' }
       format.json { head :no_content }
     end
   end
@@ -93,6 +93,6 @@ class SubjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params[:subject]
+      params.require(:subject).permit(:title, :type, :type_of_reporting)
     end
 end

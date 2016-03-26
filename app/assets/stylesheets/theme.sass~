@@ -1,10 +1,10 @@
 $body-bg: #FFFFFF
 $navbar-default-bg: #fff
-$navbar-default-link-color : #333
+$navbar-default-link-color : #433
 $navbar-margin-bottom: 0
-$navbar-inverse-bg: #ffdab9 //#438EB9  #01579b
-$navbar-inverse-link-color: lighten(#000, 0%)
-$navbar-inverse-link-hover-color: #fff
+$navbar-inverse-bg: #000 //#438EB9  #01579b
+$navbar-inverse-link-color: lighten(#D2691E, 0%)
+$navbar-inverse-link-hover-color: #7ff
 $navbar-inverse-link-active-color: $navbar-inverse-link-color
 $navbar-inverse-link-hover-bg: darken($navbar-inverse-bg, 5%)
 $navbar-inverse-toggle-hover-bg: $navbar-inverse-link-hover-bg
@@ -48,6 +48,8 @@ $text-yellow: #EEEE00
 
 @import bootstrap-sprockets
 @import bootstrap
+@import bootstrap-datetimepicker
+@import bootstrap-select
 
 @import font-awesome
 

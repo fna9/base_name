@@ -89,6 +89,8 @@ ru:
         description: Описание
       talk:
         title: Название
+      university:
+        name: Название учебного заведения
     errors:
       models:
         person:

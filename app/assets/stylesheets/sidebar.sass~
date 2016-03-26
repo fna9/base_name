@@ -1,5 +1,5 @@
 $sidebar-width: 280px
-$sidebar-bg: #FAEBD7 // 000
+$sidebar-bg: #F3EBD7 // #000
 $sidebar-link-color: lighten($gray-base, 10%) //#b3b8c3
 $sidebar-link-hover-bg: $light_blue
 

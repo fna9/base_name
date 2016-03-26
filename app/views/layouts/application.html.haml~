@@ -10,7 +10,7 @@
     = csrf_meta_tags
     =favicon_link_tag 'favicon.ico'
     =favicon_link_tag 'favicon-32x32.png', sizes: '32x32'
-    =favicon_link_tag 'logo.png', rel: 'apple-touch-icon'
+    =favicon_link_tag 'apple-icon.png', rel: 'apple-touch-icon'
 
   %body
     =render 'application/navbar_top'
@@ -29,4 +29,4 @@
           = yield
   .modal.fade#loader{tabindex: -1, role: 'dialog', 'aria-labelledby' => 'myModalLabel'}
     .modal-dialog.mymodal{role: 'document'}
-      =image_tag 'gif.gif'
+      =image_tag 'pica.gif'
