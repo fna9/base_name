@@ -122,7 +122,7 @@ module SideBarHelper
     result << {
       :name => 'Настройки',
       :icon => 'cogs',
-      :controller => :welcome, 
+      :controller => :universities, 
       :action => :index
     }
 

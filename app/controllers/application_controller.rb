@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_app_auth
-	#return true
+	return true
     render 'access_denied' unless @current_role_user.try(:is_admin?)
   end
 

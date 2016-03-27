@@ -97,9 +97,9 @@ class GroupsController < ApplicationController
       params.require(:group).permit(:title, :course, :semester)
     end
 
-  def check_app_auth
-	#return true
-	  return true if action_name == 'index'
-    render 'access_denied' unless @current_role_user.try(:is_admin?)
-  end
+ # def check_app_auth
+#	return true
+	 # return true if action_name == 'index'
+    #render 'access_denied' unless @current_role_user.try(:is_admin?)
+ # end
 end
