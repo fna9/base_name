@@ -1,13 +1,13 @@
 = form_for @page do |f|
   - if @page.errors.any?
     = error_messages_for @page
-		
+  = hidden_field_tag(:subject_id, params[:subject_id])
 
   .row
     .col-md-8
       .form-group
         =f.label :visibility
-        =f.text_field(:visibility, class: 'form-control')
+        =f.select :visibility, [['Видимая', true], ['Не видимая', false]], {}, class: 'form-control'
         =f.error_messages_for(:visibility)
 
   .row
@@ -20,16 +20,17 @@
   .row
     .col-md-8
       .form-group
-        =f.label :contents
-        =f.text_field(:contents, class: 'form-control')
-        =f.error_messages_for(:contents)
-
-  .row
-    .col-md-8
-      .form-group
         =f.label :alias
         =f.text_field(:alias, class: 'form-control')
         =f.error_messages_for(:alias)
 
+  .row
+    .col-md-8
+      .form-group
+        =f.label :contents
+        =f.text_area(:contents, class: 'form-control', style: 'height: 600px')
+        =f.error_messages_for(:contents)
+
+
   .actions
-    = f.submit 'Сохранить'
+    = f.submit 'Сохранить', class: "btn btn-primary btn-xs"

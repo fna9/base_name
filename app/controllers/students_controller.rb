@@ -11,6 +11,11 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    if @current_role_user.try('is_teacher?')
+      render('show')
+    else
+      render('show_for_students')
+    end 
   end
 
   # GET /students/new

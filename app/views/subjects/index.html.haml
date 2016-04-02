@@ -12,8 +12,8 @@
     - @subjects.each do |subject|
       %tr
         %td= subject.title
-        %td= subject.type
-        %td= subject.type_of_reporting
+        %td= subject.s_type
+        %td= Subject::RTYPES[subject.type_of_reporting]
         %td
           = link_to subject,"data-toggle" => "tooltip", :title => "Показать", class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"

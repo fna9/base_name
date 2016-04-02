@@ -28,6 +28,10 @@ class Teacher < ActiveRecord::Base
 		"#{age(d)} #{RuPropisju.choose_plural(age(d), 'год', 'года', 'лет')}"
 	end
 	
+	def full_name
+	  [self.last_name, self.first_name, self.second_name].select{ |x| x.present? }.join(' ')
+	end
+	
 private
 
 	def check_b_date

@@ -39,7 +39,7 @@
           = @current_role_user.try(:role).try(:name)
           %span.caret
         %ul.dropdown-menu{role: 'menu'}
-          - RoleUser.includes(:role).order('roles.name').to_a.each do |r|
+          - RoleUser.where(user_id: @current_user.try(:id)).includes(:role).order('roles.name').to_a.each do |r|
             - if r == @current_role_user
               %li.selected-item
                 = link_to(welcome_path(current_role_user_id: r.id)) do

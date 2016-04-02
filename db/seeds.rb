@@ -22,3 +22,14 @@ r3 = Role.create(name: 'Студент', short_name: 'Студент')
 RoleUser.create(role: r1, user: u)
 RoleUser.create(role: r2, user: u)
 RoleUser.create(role: r3, user: u)
+
+
+uni = University.create(name: 'МАМИ', full_name: "Московский государственный машиностроительный университет")
+
+t1 = Teacher.create(last_name: 'Белова', first_name: 'Ирина', second_name: 'Михайловна', b_date: Date.new(1953, 03, 16), degree: 'к.т.н.', rank: 'Доцент', position: 'Заведующая кафедрой')
+Teacher.create(last_name: 'Иванова', first_name: 'Марина', second_name: 'Михайловна', b_date: Date.new(1953, 03, 16), degree: 'к.т.н.', rank: 'Доцент', position: 'Старший преподаватель')
+Teacher.create(last_name: 'Петрова', first_name: 'Ирина', second_name: 'Михайловна', b_date: Date.new(1953, 03, 16), degree: 'к.т.н.', rank: 'Доцент', position: 'Преподаватель')
+Teacher.create(last_name: 'Петров', first_name: 'Денис', second_name: 'Олегович', b_date: Date.new(1953, 03, 16), degree: 'к.т.н.', rank: 'Доцент', position: 'Петров')
+Teacher.create(last_name: 'Овсянников', first_name: 'Александрович', second_name: 'Михайловна', b_date: Date.new(1953, 03, 16), degree: 'к.т.н.', rank: 'Доцент', position: 'Ассистент')
+
+puts t1.errors.inspect

@@ -42,10 +42,10 @@ class ApplicationController < ActionController::Base
  
   def load_current_role_user
     if params.has_key?(:current_role_user_id)
-      @current_role_user = RoleUser.find(params[:current_role_user_id])
+      @current_role_user = RoleUser.where(user_id: @current_user.try(:id), id: params[:current_role_user_id]).first
       session[:current_role_user_id] = @current_role_user.id
     elsif session.has_key?(:current_role_user_id)
-      @current_role_user = RoleUser.find(session[:current_role_user_id])
+      @current_role_user = RoleUser.where(user_id: @current_user.try(:id), id: session[:current_role_user_id]).first
     elsif @current_user.present?
       @current_role_user = @current_user.role_users.first
     end

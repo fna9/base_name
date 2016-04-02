@@ -28,6 +28,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
+        s = Subject.find(params[:subject_id])
+        ps = PageSubject.create(page: @page, subject: s)
         format.html { redirect_to @page, notice: 'Page was successfully created.' }
         format.json { render :show, status: :created, location: @page }
       else
@@ -35,6 +37,7 @@ class PagesController < ApplicationController
         format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /pages/1
@@ -69,6 +72,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params[:page]
+      params.require(:page).permit(:visibility, :header, :contents, :alias)
     end
 end

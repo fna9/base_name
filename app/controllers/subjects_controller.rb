@@ -10,6 +10,11 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    if @current_role_user.try('is_teacher?')
+      render('show')
+    else
+      render('show_for_students')
+    end 
   end
 
   # GET /subjects/new
@@ -93,6 +98,6 @@ class SubjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      params.require(:subject).permit(:title, :type, :type_of_reporting)
+      params.require(:subject).permit(:title, :s_type, :type_of_reporting)
     end
 end

@@ -13,6 +13,8 @@ class Subject < ActiveRecord::Base
 	has_many :teachers, through: :subject_teachers
 	
 	validates :title, presence: true
-	validates :type, presence: true
+	validates :s_type, presence: true
 	validates :type_of_reporting, presence: true
+	
+	RTYPES = ['Экзамен', 'Дифференциальный зачет', 'Зачет']
 end
