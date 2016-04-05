@@ -1,0 +1,35 @@
+.br
+.page-header
+  .h1=@student.last_name + ' ' + @student.first_name + ' ' + @student.second_name
+
+-#%p
+-#  %b
+-#  -if @student.image?
+-#    =link_to @student.image.url do
+-#      = image_tag @student.image.url(:medium), alt: @student.last_name
+-#  -else
+-#    .li.text-danger
+-#      Изображение не загружено!
+
+%p
+  %b Дата рождения:
+  = l(@student.b_date.to_date)
+
+%p
+  %b Номер паспорта:
+  = @student.passport_id
+
+%p
+  %b Серия паспорта:
+  = @student.passport_series
+
+
+%p
+  %b Сообщества:
+  %ul
+    - @student.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
+
+
+
