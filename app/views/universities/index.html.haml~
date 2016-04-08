@@ -1,18 +1,21 @@
-%h1 Университеты
+.page-header
+  <h1>Учебные заведения</h1>
 
-%table.table
+%table.table.table-striped
   %thead
     %tr
-      %th Название (сокращенное)
-      %th Название (полное)
+      %th Название
+
+
       %th
       %th
 
   %tbody
     - @universities.each do |university|
       %tr
-        %td= university.name
-        %td= university.full_name
+        %td= university.full_name + ' ' + '(' + university.name + ')' 
+
+
         %td
           = link_to university, class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"
@@ -31,6 +34,6 @@
 %br
 
 
-= link_to new_university_path, "data-toggle" => "tooltip", :title => "Добавить университет", class: "btn btn-primary" do
+= link_to new_university_path, "data-toggle" => "tooltip", :title => "Добавить учебное заведение", class: "btn btn-primary" do
   =fa_icon "plus"
-  Добавить Университет
+  Добавить учебное заведение

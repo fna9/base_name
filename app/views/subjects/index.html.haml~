@@ -1,5 +1,5 @@
-
-%h1Дисциплины
+.page-header
+  <h1Дисциплины</h1>
 
 %table.table.table-striped
   %thead

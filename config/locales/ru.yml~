@@ -72,7 +72,7 @@ ru:
         degree: Степень
         rank: Звание
         position: Должность
-	b_date: Дата рождения
+        b_date: Дата рождения
       rating:
         title: Название
         s_type: Тип

@@ -2,18 +2,18 @@
 .page-header
   .h1=@student.last_name + ' ' + @student.first_name + ' ' + @student.second_name
 
--#%p
--#  %b
--#  -if @student.image?
--#    =link_to @student.image.url do
--#      = image_tag @student.image.url(:medium), alt: @student.last_name
--#  -else
--#    .li.text-danger
--#      Изображение не загружено!
+%p
+  %b
+  -if @student.avatar?
+    =link_to @student.avatar.url do
+      = image_tag @student.avatar.url(:medium), alt: @student.last_name
+  -else
+    .li.text-danger
+      Изображение не загружено!
 
 %p
   %b Дата рождения:
-  = @student.b_date.to_date, format: :default
+  = l(@student.b_date.to_date)
 
 %p
   %b Номер паспорта:
@@ -23,12 +23,13 @@
   %b Серия паспорта:
   = @student.passport_series
 
-%p
-  %b Учебная группа:
-  = link_to @student
 
 %p
   %b Сообщества:
+  %ul
+    - @student.groups.each do |gr|
+      %li
+        = link_to gr.title, group_path(gr) 
 
 
 

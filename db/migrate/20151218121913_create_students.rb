@@ -7,6 +7,7 @@ class CreateStudents < ActiveRecord::Migration
       t.date :b_date, :null => false
       t.string :passport_id, :null => false
       t.integer :passport_series, :null => false 
+      t.attachment :avatar
       t.index [:passport_id, :passport_series], :unique => true
       
 

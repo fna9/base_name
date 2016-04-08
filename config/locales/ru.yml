@@ -62,6 +62,7 @@ ru:
         passport_series: Серия паспорта
         image: Изображение
         groups: Учебные группы
+        avatar: Изображение
       mark:
         mark: Оценка
         comment: Комментарий

@@ -17,12 +17,14 @@
   %tbody
     - @students.each do |student|
       %tr
+        %td= student.avatar
         %td= student.last_name
         %td= student.first_name
         %td= student.second_name
-        %td= student.b_date.to_date
+        %td= l(student.b_date.to_date)
         %td= student.passport_id
         %td= student.passport_series
+
         %td= raw(student.groups.map{ |g| link_to(g.title, group_path(g)) }.join(', '))
         %td
           = link_to student,"data-toggle" => "tooltip", :title => "Развернутая информация студента", class: "btn btn-success btn-xs" do
