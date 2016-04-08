@@ -1,5 +1,5 @@
-.page-header
-  <h1>Дисциплины</h1>
+
+%h1Дисциплины
 
 %table.table.table-striped
   %thead
@@ -12,8 +12,8 @@
     - @subjects.each do |subject|
       %tr
         %td= subject.title
-        %td= subject.type
-        %td= subject.type_of_reporting
+        %td= subject.s_type
+        %td= Subject::RTYPES[subject.type_of_reporting]
         %td
           = link_to subject,"data-toggle" => "tooltip", :title => "Показать", class: "btn btn-success btn-xs" do
             =fa_icon "arrow-circle-right"
@@ -31,6 +31,6 @@
 
 %br
 
-= link_to new_subject_path, "data-toggle" => "tooltip", :title => "Добавление новой дисциплины", class: "btn btn-primary" do
+= link_to new_subject_path, "data-toggle" => "tooltip", :title => "Создание новой дисциплины", class: "btn btn-primary" do
   =fa_icon "plus"
-  Новый Студент
+  Добавить дисциплину

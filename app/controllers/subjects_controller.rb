@@ -58,7 +58,7 @@ class SubjectsController < ApplicationController
   # PATCH/PUT /subjects/1.json
   def update
     if params.has_key?(:subject) and params[:subject].has_key?(:teachers)
-      @st = params[:subject][:teacher].map{ |st| st.to_i } - [0]
+      @st = params[:subject][:teachers].map{ |st| st.to_i } - [0]
     end    
     if @subject.update(subject_params)
       if @st.kind_of?(Array)

@@ -37,4 +37,6 @@
 
 %br
 
-= link_to 'Добавить нового преподавателя', new_teacher_path
+= link_to new_teacher_path, "data-toggle" => "tooltip", :title => "Добавить преподавателя", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Добавить преподавателя

@@ -22,6 +22,10 @@
   %b Должность:
   = @teacher.position
 
+%p
+  %b Дата рождения:
+  = l(@teacher.b_date)
+
 
 
 = link_to edit_teacher_path(@teacher), class: "btn btn-warning" do

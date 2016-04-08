@@ -22,10 +22,9 @@
   %b Должность:
   = @teacher.position
 
-
-
 %p
-  %b Сообщества:
+  %b Дата рождения:
+  = @teacher.b_date
 
 
 

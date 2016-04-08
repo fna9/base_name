@@ -49,8 +49,9 @@ ru:
         alias: Псевдоним
       subject:
         title: Название
-        type: Тип
+        s_type: Тип
         type_of_reporting: Вид итоговой отчетности
+        teachers: Преподаватели
       student:
         last_name: Фамилия
         first_name: Имя
@@ -60,6 +61,7 @@ ru:
         passport_id: Номер паспорта
         passport_series: Серия паспорта
         image: Изображение
+        groups: Учебные группы
       mark:
         mark: Оценка
         comment: Комментарий
@@ -70,9 +72,10 @@ ru:
         degree: Степень
         rank: Звание
         position: Должность
+	b_date: Дата рождения
       rating:
         title: Название
-        type: Тип
+        s_type: Тип
         offset: "Зачет"
         min_offset: нижняя граница
         max_offset: верхняя граница
@@ -89,6 +92,9 @@ ru:
         description: Описание
       talk:
         title: Название
+      university:
+        name: Название учебного заведения
+        full_name: Сокращенное название учебного заведения
     errors:
       models:
         person:
