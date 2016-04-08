@@ -35,6 +35,14 @@ module SideBarHelper
     if ru.nil?
      
     elsif ru.is_admin?
+    
+      result << {
+        :name => 'Университеты',
+        :icon => 'cogs',
+        :controller => :universities, 
+        :action => :index
+      }
+    
       result << {
         :name => 'Учебные группы',
         :icon => 'sitemap',
@@ -128,6 +136,15 @@ module SideBarHelper
         :controller => :universities, 
         :action => :index
       }
+      
+            
+      result << {
+        :name => 'Страницы',
+        :icon => 'cogs',
+        :controller => :pages, 
+        :action => :index
+      }
+
 
       
     elsif ru.is_teacher?
@@ -189,6 +206,7 @@ module SideBarHelper
         :controller => :universities, 
         :action => :index
       }
+
 
 
     elsif ru.is_student?

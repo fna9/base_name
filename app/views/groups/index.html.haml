@@ -34,6 +34,8 @@
 
 %br
 
-= link_to 'Новая группа', new_group_path, "data-toggle" => "tooltip", :title => "Создать новую учебную группу", class: "btn btn-primary btn-xs"
+= link_to new_group_path, "data-toggle" => "tooltip", :title => "Добавить новую учебную группу", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Новая Группа
 
 

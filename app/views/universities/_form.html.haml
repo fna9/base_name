@@ -1,13 +1,27 @@
 = form_for @university do |f|
   - if @university.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@university.errors.count, "Ошибка")} prohibited this university from being saved:"
-      %ul
-        - @university.errors.full_messages.each do |msg|
-          %li= msg
+    = error_messages_for @university
 
-  .field
-    = f.label :name
-    = f.text_field :name
+  .row
+    .col-md-8
+      .form-group
+        *
+        =f.label :name
+        =f.text_field(:name, class: 'form-control', :placeholder => "Наименование (полностью)")
+        
+  .row
+    .col-md-8
+      .form-group
+        *
+        =f.label :full_name
+        =f.text_field(:full_name, class: 'form-control', :placeholder => "Наименование (сокращенное)")
+        
+
+  .h5 * - поля обязательные для заполнения!
+        
+        
   .actions
     = f.submit 'Сохранить'
+
+
+ 

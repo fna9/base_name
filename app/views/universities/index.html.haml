@@ -29,6 +29,7 @@
 
 %br
 
-= link_to 'Создать новый', new_university_path, "data-toggle" => "tooltip", :title => "Добавить новый университет", class: "btn btn-primary btn-xs"
 
-
+= link_to new_university_path, "data-toggle" => "tooltip", :title => "Добавить университет", class: "btn btn-primary" do
+  =fa_icon "plus"
+  Добавить Университет

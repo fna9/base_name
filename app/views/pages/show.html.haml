@@ -1,6 +1,26 @@
-%p#notice= notice
+.br
+.page-header
+  
+  .h1= 'Заголовок' + ' ' + @page.header
 
 
-= link_to 'Редактировать', edit_page_path(@page)
+%p
+  %b Видимость:
+  = @page.visibility
+
+%p
+  %b Содержание:
+  = @page.contents
+%p
+  %b Псевдоним:
+  = @page.alias
+
+
+
+= link_to edit_page_path(@page), class: "btn btn-warning" do
+  =fa_icon "pencil"
+  Редактировать
 \|
-= link_to 'Назад', pages_path
+= link_to pages_path, class: "btn btn-primary" do
+  =fa_icon "reply"
+  Вернуться

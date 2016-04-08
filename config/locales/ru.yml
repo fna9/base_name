@@ -93,6 +93,7 @@ ru:
         title: Название
       university:
         name: Название учебного заведения
+        full_name: Сокращенное название учебного заведения
     errors:
       models:
         person:
