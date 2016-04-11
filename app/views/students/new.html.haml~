@@ -1,5 +1,0 @@
-%h1 Новый студент
-
-= render 'form'
-
-= link_to 'Назад', students_path

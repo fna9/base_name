@@ -1,11 +1,22 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :get_photo, :show_photo]
 
   # GET /students
   # GET /students.json
   def index
     @students = Student.all
     #@groups = Group.where(:student_id=@student)
+  end
+
+  def show_photo
+    render(layout: 'easy_layout')
+  end
+
+  def get_photo
+    type = :medium
+    type = params['type'] if params.has_key?(:type)
+    photo = @student.avatar.path(type)
+    send_file photo
   end
 
   # GET /students/1

@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   resources :students
   resources :groups
   resources :teachers
-  resources :students
+  resources :students do
+    member do
+      get :get_photo
+      get :show_photo
+    end
+  end
   resources :users
   resources :plans
   resources :password_resets
