@@ -21,7 +21,8 @@
         = teacher.full_name
         %span.badge
           = [teacher.rank, teacher.degree].select{ |x| x.present? }.join(', ')
-
+%p
+  = markdown(@subject.pages.first.try(:contents).to_s)
 = link_to edit_subject_path(@subject), class: "btn btn-warning" do
   =fa_icon "pencil"
   Редактировать
