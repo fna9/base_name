@@ -21,6 +21,8 @@
         = teacher.full_name
         %span.badge
           = [teacher.rank, teacher.degree].select{ |x| x.present? }.join(', ')
+%p
+  = markdown(@subject.pages.first.try(:contents).to_s)
 - if @subject.pages.size > 0
   = raw(@subject.pages.first.contents)
 
