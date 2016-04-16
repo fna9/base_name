@@ -105,16 +105,6 @@ ActiveRecord::Schema.define(version: 20160326142359) do
   add_index "messager_users", ["message_id"], name: "index_messager_users_on_message_id", using: :btree
   add_index "messager_users", ["user_id"], name: "index_messager_users_on_user_id", using: :btree
 
-  create_table "messagers", force: :cascade do |t|
-    t.string   "header"
-    t.text     "text",       null: false
-    t.integer  "talk_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "messagers", ["talk_id"], name: "index_messagers_on_talk_id", using: :btree
-
   create_table "messages", force: :cascade do |t|
     t.string   "header"
     t.text     "text"
@@ -215,6 +205,17 @@ ActiveRecord::Schema.define(version: 20160326142359) do
   end
 
   add_index "roles", ["short_name"], name: "index_roles_on_short_name", unique: true, using: :btree
+
+  create_table "specialties", force: :cascade do |t|
+    t.string   "code",       limit: 10, null: false
+    t.string   "gen",                   null: false
+    t.string   "title",                 null: false
+    t.string   "level",                 null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "specialties", ["code"], name: "index_specialties_on_code", unique: true, using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "last_name",           limit: 64, null: false
